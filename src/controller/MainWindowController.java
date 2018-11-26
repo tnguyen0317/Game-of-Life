@@ -5,6 +5,7 @@ package controller;
 
 import view.MainWindowView;
 import model.*;
+import view.DrawBoard;
 
 /**
  * @author minh
@@ -13,17 +14,20 @@ import model.*;
 
 public class MainWindowController {
 	
-	public MainWindowView View;
-	public Game Model;
+	private MainWindowView _view;
+	private Game _model;
 	
-	public MainWindowController(MainWindowView View, Game Model) {
-		this.View = View;
-		this.Model = Model;
-	}
-	
-	private void DrawBoard() {
-		// Draw grid on JPanel based on column and row size
+	public MainWindowController() {
+		this._view = new MainWindowView();
+		this._model = new Game();
 		
 	}
 	
+	public MainWindowController(MainWindowView View, Game Model) {
+		this._view = View;
+		this._model = Model;
+	}
+	
+	
+
 }
