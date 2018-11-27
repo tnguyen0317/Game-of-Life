@@ -63,34 +63,32 @@ public class MainWindowView {
 	 */
 	private void initialize() {
 		frame = new JFrame("Game of Life");
-		frame.setBounds(100, 100, 527, 325);
+		frame.setBounds(100, 100, 611, 415);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-	    frame.setBackground(Color.blue);
 		
-		JButton btnNewButton = new JButton("Start");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnStart = new JButton("Start");
+		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(12, 206, 158, 34);
-		frame.getContentPane().add(btnNewButton);
+		btnStart.setBounds(12, 206, 158, 34);
+		frame.getContentPane().add(btnStart);
 		
-		JPanel panel = new JPanel(); 
+		panel = new JPanel(new BorderLayout()); 
 
 		panel.setBounds(0, 0, 503, 173);
 		frame.getContentPane().add(panel);
-		
-		DrawBoard drawBoard = new DrawBoard();
-		frame.getContentPane().add(drawBoard);
-		frame.add(drawBoard);
-		
 
-		
-		JButton btnPause = new JButton("Pause");
+//		DrawBoard drawBoard = new DrawBoard(10,10);
+//		
+//		panel.add(drawBoard);
+
+		btnPause = new JButton("Pause");
 		btnPause.setBounds(12, 251, 117, 25);
 		frame.getContentPane().add(btnPause);
 		
+		frame.setVisible(true);
 
 	}
 	
