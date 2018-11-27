@@ -15,6 +15,9 @@ import java.awt.GridLayout;
 public class MainWindowView {
 
 	private JFrame frame;
+	private JButton btnStart;
+	private JButton btnPause;
+	private JPanel panel;
 
 	/**
 	 * Launch the application.
