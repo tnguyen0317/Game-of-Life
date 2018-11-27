@@ -20,4 +20,19 @@ public class Game {
 		this.updateTime = updateTime;
 	}
 
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
+
+	public double getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(double updateTime) {
+		this.updateTime = updateTime;
+	}
 }
