@@ -8,7 +8,7 @@ package model;
  *
  */
 public class Cell {
-	public Position position;
+	public Point position;
 	public boolean isAlive;
 	
 	public Cell() {
