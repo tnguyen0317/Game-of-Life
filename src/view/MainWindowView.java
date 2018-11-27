@@ -19,20 +19,6 @@ public class MainWindowView {
 	private JButton btnPause;
 	private JPanel panel;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainWindowView window = new MainWindowView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 	public JFrame getFrame() {
 		return frame;
 	}
