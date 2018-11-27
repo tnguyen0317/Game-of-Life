@@ -9,6 +9,7 @@ import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.Point;
 /**
  * @author thong
  *
@@ -26,6 +27,16 @@ public class DrawBoard extends JPanel{
 //	
 	public void paintComponent(Graphics g) {
 		int size = 34;
+	private final int column;
+	private final int row;
+	private final int size;
+	private final Point position;
+
+	public DrawBoard(int column, int row,int size,Point position) {
+		this.column = column;
+		this.row = row;
+		this.size = size;
+		this.position = position;
 		
 		int column = 10;
 		int row = 10;
