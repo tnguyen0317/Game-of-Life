@@ -28,6 +28,10 @@ public class DrawBoard extends JPanel{
 		this.size = size;
 		this.position = position;
 		
+	}
+	
+	public void paintComponent(Graphics g) {
+
 		int column = 10;
 		int row = 10;
 		for(int i = 0; i < column; i++)
@@ -37,15 +41,4 @@ public class DrawBoard extends JPanel{
 			}
 		
 	}
-	public static void main(String[] args) {
-	    JFrame frame = new JFrame("Draw Line");
-	    frame.setBackground(Color.blue);
-	    frame.setSize(640, 480);
-	 
-	    DrawBoard panel = new DrawBoard();
-	 
-	    frame.add(panel);
-	 
-	    frame.setVisible(true);
-	  }
 }
