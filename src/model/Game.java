@@ -19,4 +19,5 @@ public class Game {
 		this.board = board;
 		this.updateTime = updateTime;
 	}
+
 }

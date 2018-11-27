@@ -20,12 +20,13 @@ public class MainWindowController {
 	public MainWindowController() {
 		this._view = new MainWindowView();
 		this._model = new Game();
-		
+
 	}
 	
 	public MainWindowController(MainWindowView View, Game Model) {
 		this._view = View;
 		this._model = Model;
+		
 	}
 	
 	

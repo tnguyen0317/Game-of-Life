@@ -71,7 +71,6 @@ public class MainWindowView {
 		frame.getContentPane().add(btnPause);
 		
 
-
 	}
 	
 	
