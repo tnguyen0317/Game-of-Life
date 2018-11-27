@@ -33,6 +33,36 @@ public class MainWindowView {
 				}
 			}
 		});
+	public JFrame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(JFrame frame) {
+		this.frame = frame;
+	}
+
+	public JButton getBtnStart() {
+		return btnStart;
+	}
+
+	public void setBtnStart(JButton btnStart) {
+		this.btnStart = btnStart;
+	}
+
+	public JButton getBtnPause() {
+		return btnPause;
+	}
+
+	public void setBtnPause(JButton btnPause) {
+		this.btnPause = btnPause;
+	}
+
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
 	}
 
 	/**
