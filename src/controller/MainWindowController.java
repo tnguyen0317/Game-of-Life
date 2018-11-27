@@ -27,6 +27,17 @@ public class MainWindowController {
 		this._view = View;
 		this._model = Model;
 		
+		DrawBoard();
+	}
+	
+	public void DrawBoard() {
+		
+		DrawBoard drawBoard = new DrawBoard(10,10,20,_view.getPanel().getLocationOnScreen());
+		
+//		_view.getPanel().setSize(drawBoard.getSize());
+		
+		
+		_view.getPanel().add(drawBoard);
 	}
 	
 	
