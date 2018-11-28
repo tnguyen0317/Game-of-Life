@@ -10,8 +10,6 @@ import java.awt.Rectangle;
  *
  */
 public class Cell {
-	public Point position;
-	public boolean isAlive;
 	private final Point position;
 	private boolean isAlive;
 	private final Rectangle Boundary;
