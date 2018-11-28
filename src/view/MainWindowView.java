@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class MainWindowView {
@@ -63,21 +65,17 @@ public class MainWindowView {
 	 */
 	private void initialize() {
 		frame = new JFrame("Game of Life");
-		frame.setBounds(100, 100, 611, 415);
+		frame.setBounds(100, 100, 935, 553);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		btnStart = new JButton("Start");
-		btnStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnStart.setBounds(12, 206, 158, 34);
+		btnStart.setBounds(10, 413, 158, 43);
 		frame.getContentPane().add(btnStart);
 		
 		panel = new JPanel(new BorderLayout()); 
 
-		panel.setBounds(0, 0, 503, 173);
+		panel.setBounds(0, 0, 919, 402);
 		frame.getContentPane().add(panel);
 
 //		DrawBoard drawBoard = new DrawBoard(10,10);
@@ -85,13 +83,10 @@ public class MainWindowView {
 //		panel.add(drawBoard);
 
 		btnPause = new JButton("Pause");
-		btnPause.setBounds(12, 251, 117, 25);
+		btnPause.setBounds(10, 460, 158, 43);
 		frame.getContentPane().add(btnPause);
 		
 		frame.setVisible(true);
 
 	}
-	
-	
-	
 }
