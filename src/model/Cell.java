@@ -3,6 +3,8 @@
  */
 package model;
 
+import java.awt.Rectangle;
+
 /**
  * @author minh
  *
@@ -10,9 +12,30 @@ package model;
 public class Cell {
 	public Point position;
 	public boolean isAlive;
+	private final Point position;
+	private boolean isAlive;
+	private final Rectangle Boundary;
+	private final int size;
 	
-	public Cell() {
+	
+	public boolean isAlive() {
+		return isAlive;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
+	}
+
+	public Rectangle getBoundary() {
+		return Boundary;
+	}
+
+	public Cell(Point position,int size) {
 		isAlive = false;
+		this.position = position;
+		this.size = size;
+		Boundary = new Rectangle(position.X * size, position.Y * size, size, size);
+		
 	}
 	
 	public int GetNeighbours(Board b) {
