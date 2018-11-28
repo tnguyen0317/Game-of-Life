@@ -13,8 +13,6 @@ public class Board {
 	public int sizeRow;
 
 	//Constructors and get/set methods
-	public Board(Cell[][] Cells) {
-		this.cells = Cells;
 	public Board() {
 	}
 
