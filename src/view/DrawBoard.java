@@ -32,8 +32,6 @@ public class DrawBoard extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 
-		int column = 10;
-		int row = 10;
 		for(int i = 0; i < column; i++)
 			for(int j = 0; j < row; j++) {
 				g.drawRect((int)position.getX() + i * this.size,(int)position.getY() + j * this.size, this.size, this.size);
