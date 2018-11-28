@@ -15,6 +15,7 @@ public class Board {
 	//Constructors and get/set methods
 	public Board(Cell[][] Cells) {
 		this.cells = Cells;
+	public Board() {
 	}
 
 	public Board(int column, int row) {
@@ -22,6 +23,13 @@ public class Board {
 		this.sizeRow = row;
 
 		this.cells = new Cell[sizeColumn][sizeRow];
+		
+		final int size = 10;
+		
+		//foreach element in the board, initialize it with a new instance of a Cell
+		for(int i = 0; i < sizeColumn; i++)
+			for(int j = 0; j < sizeRow; j++)
+				this.cells[i][j] = new Cell(new Point(i,j),size);
 	}
 
 	public Cell[][] getCells() {
@@ -46,7 +54,7 @@ public class Board {
 		
 		for(int i = 0; i < sizeColumn; i++) {
 			for (int j = 0; j < sizeRow; j++) {
-				alive = this.cells[i][j].isAlive;
+				alive = this.cells[i][j].isAlive();
 				result = false;
 				count = this.cells[i][j].GetNeighbours(this);
 				
@@ -66,7 +74,7 @@ public class Board {
 				if(count == 3 && !alive)
 					result = true;
 				
-				this.cells[i][j].isAlive = result;
+				this.cells[i][j].setAlive(result);
 				
 			}
 		}
