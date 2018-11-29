@@ -3,9 +3,8 @@
  */
 package controller;
 
-import view.MainWindowView;
 import model.*;
-import view.DrawBoard;
+import view.*;
 import eventhandler.BoardMouseAdapter;
 import eventhandler.BoardMouseMotionAdapter;
 
@@ -35,11 +34,12 @@ public class MainWindowController {
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
 		DrawBoard();
 		setFrameSize();
+		Update();
 	}
 	
 	public void DrawBoard() {
 		
-		DrawBoard drawBoard = new DrawBoard(61,26,15);
+		DrawBoard drawBoard = new DrawBoard(15,_model.getBoard());
 		
 //		_view.getFrame().setBounds(_view.getPanel().getBounds().x,_view.getPanel().getBounds().y + 150,_view.getPanel().getBounds().width,_view.getPanel().getBounds().height + 100);
 //		_view.getPanel().setBounds(0,0,drawBoard.getWidth() * drawBoard.getColumn(),drawBoard.getHeight() * drawBoard.getRow());
@@ -51,4 +51,7 @@ public class MainWindowController {
 		
 	}
 	
+	private void Update() {
+		_model.getBoard().UpdateBoard();
+	}
 }
