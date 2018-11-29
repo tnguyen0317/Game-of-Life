@@ -50,29 +50,37 @@ public class Cell {
 		//check all eight cells around if they are alive
 		
 		//above current cell
-		if (b.GetCell(position.X,position.Y+1).isAlive)
-			count++;
+		if(this.position.Y != 0)
+			if (b.GetCell(position.X,position.Y-1).isAlive)
+				count++;
 		//upper right corner
-		if(b.GetCell(position.X+1,position.Y+1).isAlive)
-			count++;
+		if(this.position.X != b.sizeColumn - 1 && this.position.Y != 0)
+			if(b.GetCell(position.X+1,position.Y-1).isAlive)
+				count++;
 		//right of current cell
-		if(b.GetCell(position.X+1,position.Y).isAlive)
-			count++;
+		if(this.position.X != b.sizeColumn - 1)
+			if(b.GetCell(position.X+1,position.Y).isAlive)
+				count++;
 		//lower right corner
-		if(b.GetCell(position.X+1,position.Y-1).isAlive)
-			count++;
+		if(this.position.X != b.sizeColumn - 1 && this.position.Y != b.sizeRow - 1)
+			if(b.GetCell(position.X-1,position.Y+1).isAlive)
+				count++;
 		//below current cell
-		if(b.GetCell(position.X,position.Y-1).isAlive)
-			count++;
+		if(this.position.Y != b.sizeRow - 1)
+			if(b.GetCell(position.X,position.Y+1).isAlive)
+				count++;
 		//lower left corner
-		if(b.GetCell(position.X-1,position.Y-1).isAlive)
-			count++;
+		if(this.position.X != 0 && this.position.Y != b.sizeRow - 1)
+			if(b.GetCell(position.X-1,position.Y+1).isAlive)
+				count++;
 		//left of current cell
-		if(b.GetCell(position.X-1,position.Y).isAlive)
-			count++;
+		if(this.position.X != 0)
+			if(b.GetCell(position.X-1,position.Y).isAlive)
+				count++;
 		//upper left corner
-		if(b.GetCell(position.X-1,position.Y+1).isAlive)
-			count++;
+		if(this.position.X != 0 && this.position.Y != 0)
+			if(b.GetCell(position.X-1,position.Y-1).isAlive)
+				count++;
 		
 		return count;
 	}
