@@ -87,5 +87,9 @@ public class Board {
 		
 	}
 	
+	public void NextGeneration() {
+		for(int i = 0; i < sizeColumn; i++)
+			for(int j  = 0; j < sizeRow; j++)
+				this.cells[i][j].setAlive(nextGeneration[i][j]);
 	}
 }
