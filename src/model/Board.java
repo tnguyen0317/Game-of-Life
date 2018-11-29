@@ -26,13 +26,16 @@ public class Board {
 
 		this.nextGeneration = new boolean[sizeColumn][sizeRow];
 		
-		final int size = 10;
+		final int size = 15;
 		
 		//foreach element in the board, initialize it with a new instance of a Cell
 		for(int i = 0; i < sizeColumn; i++)
 			for(int j = 0; j < sizeRow; j++)
+			{
 				this.nextGeneration[i][j] = false;
 				this.cells[i][j] = new Cell(new Point(i,j),size);
+
+			}
 	}
 
 	public Cell[][] getCells() {
@@ -60,8 +63,7 @@ public class Board {
 				alive = this.cells[i][j].isAlive();
 				result = false;
 				count = this.cells[i][j].GetNeighbours(this);
-				
-				
+					
 				//apply rules
 				
 				//Death because of loneliness
@@ -77,7 +79,6 @@ public class Board {
 				if(count == 3 && !alive)
 					result = true;
 				
-				this.cells[i][j].setAlive(result);
 				this.nextGeneration[i][j] = result;
 				
 			}
