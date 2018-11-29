@@ -9,6 +9,8 @@ package model;
  */
 public class Board {
 	private Cell[][] cells;
+	private boolean[][] nextGeneration;
+	
 	public int sizeColumn;
 	public int sizeRow;
 
@@ -21,12 +23,15 @@ public class Board {
 		this.sizeRow = row;
 
 		this.cells = new Cell[sizeColumn][sizeRow];
+
+		this.nextGeneration = new boolean[sizeColumn][sizeRow];
 		
 		final int size = 10;
 		
 		//foreach element in the board, initialize it with a new instance of a Cell
 		for(int i = 0; i < sizeColumn; i++)
 			for(int j = 0; j < sizeRow; j++)
+				this.nextGeneration[i][j] = false;
 				this.cells[i][j] = new Cell(new Point(i,j),size);
 	}
 
@@ -73,9 +78,14 @@ public class Board {
 					result = true;
 				
 				this.cells[i][j].setAlive(result);
+				this.nextGeneration[i][j] = result;
 				
 			}
 		}
 		
+		NextGeneration();
+		
+	}
+	
 	}
 }
