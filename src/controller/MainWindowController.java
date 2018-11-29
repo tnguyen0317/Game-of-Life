@@ -4,9 +4,9 @@
 package controller;
 
 import view.MainWindowView;
-import eventhandler.JPanelMouseListener;
 import model.*;
 import view.DrawBoard;
+import eventhandler.BoardMouseAdapter;
 
 /**
  * @author minh
@@ -29,8 +29,8 @@ public class MainWindowController {
 		this._model = Model;
 		
 		_model.setBoard(new Board(61,26));
-		
-		this._view.getPanel().addMouseListener(new JPanelMouseListener(_model.getBoard()));
+
+		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		DrawBoard();
 		setFrameSize();
 	}
