@@ -16,24 +16,14 @@ import javax.swing.JPanel;
  */
 public class DrawBoard extends JPanel{
 
-	private final int column;
-	private final int row;
+
 	private final int size;
+	private Board board;
 
-	public int getColumn() {
-		return column;
-	}
+	public DrawBoard(int size,Board b) {
 
-	public int getRow() {
-		return row;
-	}
-
-
-	public DrawBoard(int column, int row,int size) {
-		this.column = column;
-		this.row = row;
 		this.size = size;
-
+		board = b;
 	}
 	
 	public void paintComponent(Graphics g) {
