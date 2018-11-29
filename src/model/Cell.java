@@ -28,6 +28,13 @@ public class Cell {
 		return Boundary;
 	}
 	
+	public Point getPosition() {
+		return position;
+	}
+
+	public int getSize() {
+		return size;
+	}
 
 	public Cell(Point position,int size) {
 		isAlive = false;
