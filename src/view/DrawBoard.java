@@ -10,6 +10,8 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import model.Board;
+import model.Cell;
 /**
  * @author thong
  *
