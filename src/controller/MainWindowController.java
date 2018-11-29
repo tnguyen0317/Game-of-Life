@@ -7,6 +7,7 @@ import view.MainWindowView;
 import model.*;
 import view.DrawBoard;
 import eventhandler.BoardMouseAdapter;
+import eventhandler.BoardMouseMotionAdapter;
 
 /**
  * @author minh
@@ -31,6 +32,7 @@ public class MainWindowController {
 		_model.setBoard(new Board(61,26));
 
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
+		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
 		DrawBoard();
 		setFrameSize();
 	}
