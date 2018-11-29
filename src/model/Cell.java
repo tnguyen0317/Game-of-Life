@@ -27,6 +27,7 @@ public class Cell {
 	public Rectangle getBoundary() {
 		return Boundary;
 	}
+	
 
 	public Cell(Point position,int size) {
 		isAlive = false;
@@ -68,5 +69,6 @@ public class Cell {
 		
 		return count;
 	}
-	
+
+
 }

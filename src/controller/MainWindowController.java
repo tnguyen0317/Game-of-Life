@@ -44,9 +44,9 @@ public class MainWindowController {
 		_view.getPanel().add(drawBoard);
 	}
 	
+	
 	public void setFrameSize() {
 		
 	}
 	
-
 }

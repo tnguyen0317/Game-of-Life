@@ -4,6 +4,7 @@
 package view;
 
 import java.awt.Color;
+
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
@@ -12,6 +13,7 @@ import javax.swing.JPanel;
 
 import model.Board;
 import model.Cell;
+
 /**
  * @author thong
  *
@@ -36,6 +38,6 @@ public class DrawBoard extends JPanel{
 				
 //				50 + i * this.size, 20 + j * this.size
 			}
-		
+
 	}
 }
