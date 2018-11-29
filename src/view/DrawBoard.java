@@ -32,12 +32,22 @@ public class DrawBoard extends JPanel{
 	
 	public void paintComponent(Graphics g) {
 
-		for(int i = 0; i < column; i++)
-			for(int j = 0; j < row; j++) {
 		super.paintComponent(g);
+		for(int i = 0; i < board.sizeColumn; i++)
+			for(int j = 0; j < board.sizeRow; j++) {
+				g.setColor(Color.black);
 				g.drawRect(i * this.size,  j * this.size, this.size, this.size);
 				
-//				50 + i * this.size, 20 + j * this.size
+				Cell cell = board.GetCell(i, j);
+				
+				
+//				System.out.println("x: " + i + " y: " + j);
+				g.setColor(Color.MAGENTA);
+				if (cell.isAlive()) {
+					g.fillRect(i * this.size,  j * this.size, this.size, this.size);
+//					repaint();
+				}
+				repaint();
 			}
 
 	}
