@@ -40,12 +40,9 @@ public class DrawBoard extends JPanel{
 				
 				Cell cell = board.GetCell(i, j);
 				
-				
-//				System.out.println("x: " + i + " y: " + j);
 				g.setColor(Color.MAGENTA);
 				if (cell.isAlive()) {
 					g.fillRect(i * this.size,  j * this.size, this.size, this.size);
-//					repaint();
 				}
 				repaint();
 			}
