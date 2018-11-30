@@ -62,8 +62,8 @@ public class Cell {
 			if(b.GetCell(position.X+1,position.Y).isAlive)
 				count++;
 		//lower right corner
-		if(this.position.X != b.sizeColumn - 1 && this.position.Y != b.sizeRow - 1)
-			if(b.GetCell(position.X-1,position.Y+1).isAlive)
+		if((this.position.X != b.sizeColumn - 1) && (this.position.Y != b.sizeRow - 1))
+			if(b.GetCell(position.X+1,position.Y+1).isAlive)
 				count++;
 		//below current cell
 		if(this.position.Y != b.sizeRow - 1)
