@@ -32,6 +32,7 @@ public class MainWindowController {
 
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
+		this._view.getBtnStart().addActionListener(e -> this.Update());
 		DrawBoard();
 		setFrameSize();
 		Update();
@@ -52,6 +53,10 @@ public class MainWindowController {
 	}
 	
 	private void Update() {
+
+		int count = _model.getBoard().getCountGeneration() + 1;
+		_view.getLblGeneration().setText("Generation: " + count);
 		_model.getBoard().UpdateBoard();
+
 	}
 }
