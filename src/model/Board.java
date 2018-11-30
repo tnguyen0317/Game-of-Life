@@ -38,7 +38,8 @@ public class Board {
 
 			}
 	}
-
+	
+	//Getters and setters
 	public Cell[][] getCells() {
 		return cells;
 	}
@@ -64,7 +65,6 @@ public class Board {
 	public void UpdateBoard() {
 		boolean alive,result;
 		int count;
-		
 		
 		for(int i = 0; i < sizeColumn; i++) {
 			for (int j = 0; j < sizeRow; j++) {
@@ -94,12 +94,15 @@ public class Board {
 		countGeneration++;
 		
 		NextGeneration();
-		
+			
 	}
+	
 	
 	public void NextGeneration() {
 		for(int i = 0; i < sizeColumn; i++)
 			for(int j  = 0; j < sizeRow; j++)
 				this.cells[i][j].setAlive(nextGeneration[i][j]);
 	}
+
+
 }
