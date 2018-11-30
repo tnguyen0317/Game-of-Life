@@ -10,6 +10,7 @@ package model;
 public class Board {
 	private Cell[][] cells;
 	private boolean[][] nextGeneration;
+	private int countGeneration = 0;
 	
 	public int sizeColumn;
 	public int sizeRow;
@@ -51,6 +52,13 @@ public class Board {
 		return this.cells[x][y];
 	}
 	
+	public int getCountGeneration() {
+		return countGeneration;
+	}
+
+	public void setCountGeneration(int countGeneration) {
+		this.countGeneration = countGeneration;
+	}
 	//Update the board with a constant time counting each cells neighbours
 	//and applying rules of the game
 	public void UpdateBoard() {
@@ -83,6 +91,7 @@ public class Board {
 				
 			}
 		}
+		countGeneration++;
 		
 		NextGeneration();
 		
