@@ -32,14 +32,16 @@ public class MainWindowController {
 
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
+		
 		this._view.getBtnStart().addActionListener(e -> this.Update());
+		
 		DrawBoard();
 		setFrameSize();
-		Update();
+
 	}
 	
 	public void DrawBoard() {
-		
+		System.out.println(_view.getRdbtnGrid().isSelected());
 		DrawBoard drawBoard = new DrawBoard(15,_model.getBoard());
 		
 //		_view.getFrame().setBounds(_view.getPanel().getBounds().x,_view.getPanel().getBounds().y + 150,_view.getPanel().getBounds().width,_view.getPanel().getBounds().height + 100);
