@@ -7,12 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import model.Board;
+
 /**
  * @author minh
  *
  */
 class BoardUnitTest {
 
+	Board b;
+	void setUp() {
+		b = new Board(15,15);
+		
+		
+	}
+	
 	/**
 	 * Test method for {@link model.Board#Board(model.Cell[][])}.
 	 */
@@ -27,6 +36,16 @@ class BoardUnitTest {
 	@Test
 	void testBoardIntInt() {
 		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testGetCell() {
+		setUp();
+		
+		
+		b.GetCell(2, 5);
+		
+		
 	}
 
 	/**
