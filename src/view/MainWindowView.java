@@ -117,6 +117,13 @@ public class MainWindowView {
 		rdbtnGrid.setBounds(174, 434, 109, 23);
 		frame.getContentPane().add(rdbtnGrid);
 		
+		String[] matrixSizes = {
+				"61x26",
+				"10x10",
+				"11x11",
+				"12x12",
+				"53x32"
+		};
 		frame.setVisible(true);
 
 	}
