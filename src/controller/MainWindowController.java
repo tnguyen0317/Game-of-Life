@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import eventhandler.BoardMouseAdapter;
 import eventhandler.BoardMouseMotionAdapter;
 
+import helpers.CheckDataInput;
+
 /**
  * @author minh
  *
