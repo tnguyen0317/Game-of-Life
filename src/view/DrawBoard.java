@@ -23,24 +23,33 @@ public class DrawBoard extends JPanel{
 
 	private final int size;
 	private Board board;
-
-	public DrawBoard(int size,Board b) {
+	private MainWindowView view;
+	
+	
+	public DrawBoard(int size,Board b,MainWindowView View) {
 
 		this.size = size;
 		board = b;
+		this.view = View;
 	}
 	
+	@Override
 	public void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
 		for(int i = 0; i < board.sizeColumn; i++)
 			for(int j = 0; j < board.sizeRow; j++) {
-				g.setColor(Color.black);
-				g.drawRect(i * this.size,  j * this.size, this.size, this.size);
+				
+				if(view.getRdbtnGrid().isSelected()) {
+					repaint();
+					g.setColor(Color.black);
+					g.drawRect(i * this.size,  j * this.size, this.size, this.size);
+				}
+
 				
 				Cell cell = board.GetCell(i, j);
 				
-				g.setColor(Color.MAGENTA);
+				g.setColor(Color.black);
 				if (cell.isAlive()) {
 					g.fillRect(i * this.size,  j * this.size, this.size, this.size);
 				}

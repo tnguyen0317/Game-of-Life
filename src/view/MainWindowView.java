@@ -109,7 +109,7 @@ public class MainWindowView {
 		frame.getContentPane().add(btnPause);
 		
 		lblGeneration = new JLabel("Generation: 0");
-		lblGeneration.setBounds(178, 413, 101, 14);
+		lblGeneration.setBounds(178, 413, 152, 14);
 		frame.getContentPane().add(lblGeneration);
 		
 		rdbtnGrid = new JRadioButton("Grid");
