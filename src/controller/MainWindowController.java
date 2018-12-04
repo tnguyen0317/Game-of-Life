@@ -49,6 +49,34 @@ public class MainWindowController {
 		DrawBoard();
 		setFrameSize();
 
+	public Point getMatrixSize() {
+		
+		String lblmatrixSize = _view.getLblmatrixSize().getText();
+		
+		_view.getLblmatrixSize().setText(lblmatrixSize + _view.getComboBox().getSelectedItem().toString());
+		
+		String matrixSize = _view.getComboBox().getSelectedItem().toString();
+		
+		if (CheckDataInput.checkMatrixInput(matrixSize)) {
+			
+			String[] parts = matrixSize.split("x");
+			
+			int width = Integer.parseInt(parts[0]);
+			
+			int height = Integer.parseInt(parts[1]);
+			
+			//Won't allow for grids with width or height higher than 100
+			if (width > 100 || height > 100)
+				return null;
+			
+			
+			Point size = new Point(width,height);
+			
+			return size;
+		}
+		
+
+		return null;
 	}
 	
 	public void DrawBoard() {
