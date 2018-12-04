@@ -31,6 +31,7 @@ public class MainWindowView {
 	private JLabel lblGeneration;
 	private JRadioButton rdbtnGrid;
 	private JComboBox comboBox;
+	private JLabel lblmatrixSize;
 
 	public JFrame getFrame() {
 		return frame;
@@ -87,6 +88,15 @@ public class MainWindowView {
 	public void setComboBox(JComboBox comboBox) {
 		this.comboBox = comboBox;
 	}
+
+	public JLabel getLblmatrixSize() {
+		return lblmatrixSize;
+	}
+
+	public void setLblmatrixSize(JLabel lblmatrixSize) {
+		this.lblmatrixSize = lblmatrixSize;
+	}
+
 	/**
 	 * Create the application.
 	 */
@@ -123,9 +133,10 @@ public class MainWindowView {
 		
 		rdbtnGrid = new JRadioButton("Grid");
 		rdbtnGrid.setSelected(true);
-		rdbtnGrid.setBounds(174, 434, 109, 23);
+		rdbtnGrid.setBounds(174, 434, 53, 23);
 		frame.getContentPane().add(rdbtnGrid);
 		
+
 		String[] matrixSizes = {
 				"61x26",
 				"10x10",
@@ -133,12 +144,19 @@ public class MainWindowView {
 				"12x12",
 				"53x32"
 		};
+		
 		comboBox = new JComboBox(matrixSizes);
 		comboBox.setBounds(302, 436, 136, 20);
 		frame.getContentPane().add(comboBox);
 		JLabel selectSize = new JLabel("Select matrix size");
 		comboBox.addItem(selectSize.getText());
 		comboBox.setEditable(true);
+		
+		lblmatrixSize = new JLabel("Current size: ");
+		lblmatrixSize.setBounds(302, 413, 136, 14);
+		frame.getContentPane().add(lblmatrixSize);
+		
+		
 		frame.setVisible(true);
 
 	}
