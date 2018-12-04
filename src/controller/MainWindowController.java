@@ -32,7 +32,7 @@ public class MainWindowController {
 		this._view = View;
 		this._model = Model;
 		
-		_model.setBoard(new Board(61,26));
+		setBoard();
 
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
@@ -49,6 +49,28 @@ public class MainWindowController {
 		DrawBoard();
 		setFrameSize();
 
+
+	}
+	
+	private void setBoard(){
+		Point matrixSize;
+		
+		try {
+
+			matrixSize = getMatrixSize();
+			
+			System.out.println("Width: " + matrixSize.X + "\nHeight: " + matrixSize.Y);
+			_model.setBoard(new Board(matrixSize.X,matrixSize.Y));
+			
+		}
+		catch(NullPointerException e) {
+			System.out.println("Matrix is either incorrectly input on the [width]x[height] format\nor it is simply too large.");
+			System.exit(1);
+			
+		}
+
+		
+	}
 	public Point getMatrixSize() {
 		
 		String lblmatrixSize = _view.getLblmatrixSize().getText();
