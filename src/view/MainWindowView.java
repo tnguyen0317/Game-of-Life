@@ -19,6 +19,7 @@ import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
+import javax.swing.JComboBox;
 
 
 public class MainWindowView {
@@ -29,6 +30,7 @@ public class MainWindowView {
 	private JPanel panel;
 	private JLabel lblGeneration;
 	private JRadioButton rdbtnGrid;
+	private JComboBox comboBox;
 
 	public JFrame getFrame() {
 		return frame;
@@ -78,6 +80,13 @@ public class MainWindowView {
 		this.rdbtnGrid = rdbtnGrid;
 	}
 
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+	public void setComboBox(JComboBox comboBox) {
+		this.comboBox = comboBox;
+	}
 	/**
 	 * Create the application.
 	 */
@@ -124,6 +133,12 @@ public class MainWindowView {
 				"12x12",
 				"53x32"
 		};
+		comboBox = new JComboBox(matrixSizes);
+		comboBox.setBounds(302, 436, 136, 20);
+		frame.getContentPane().add(comboBox);
+		JLabel selectSize = new JLabel("Select matrix size");
+		comboBox.addItem(selectSize.getText());
+		comboBox.setEditable(true);
 		frame.setVisible(true);
 
 	}
