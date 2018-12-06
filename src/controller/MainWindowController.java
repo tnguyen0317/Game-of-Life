@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import eventhandler.BoardMouseAdapter;
 import eventhandler.BoardMouseMotionAdapter;
 
+
 import helpers.CheckDataInput;
 
 /**
@@ -36,6 +37,8 @@ public class MainWindowController {
 		
 		setBoard();
 
+		
+
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
 		
@@ -49,6 +52,8 @@ public class MainWindowController {
 
 
 		DrawBoard();
+		
+		
 		setFrameSize();
 
 
@@ -125,6 +130,7 @@ public class MainWindowController {
 		int count = _model.getBoard().getCountGeneration() + 1;
 		_view.getLblGeneration().setText("Generation: " + count);
 		_model.getBoard().UpdateBoard();
+
 
 	}
 }

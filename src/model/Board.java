@@ -66,6 +66,9 @@ public class Board {
 		boolean alive,result;
 		int count;
 		
+//		if (isPaused)
+//			return;
+		
 		for(int i = 0; i < sizeColumn; i++) {
 			for (int j = 0; j < sizeRow; j++) {
 				alive = this.cells[i][j].isAlive();

@@ -12,7 +12,6 @@ public class Game {
 	private double updateTime = 1.0;
 	
 	public Game() {
-		
 	}
 	
 	public Game(int column, int row) {
@@ -38,5 +37,7 @@ public class Game {
 
 	public void setUpdateTime(double updateTime) {
 		this.updateTime = updateTime;
+
+
 	}
 }

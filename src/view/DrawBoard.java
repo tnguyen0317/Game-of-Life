@@ -30,10 +30,13 @@ public class DrawBoard extends JPanel{
 	
 	public DrawBoard(int size,Board b,MainWindowView View) {
 
+
 		this.size = size;
 		board = b;
 		this.view = View;
+		
 //		setBoard();
+		
 	}
 	
 //	private void setBoard(){
@@ -79,15 +82,17 @@ public class DrawBoard extends JPanel{
 //
 //		return null;
 //	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 
+
+		
 		super.paintComponent(g);
 		for(int i = 0; i < board.sizeColumn; i++)
 			for(int j = 0; j < board.sizeRow; j++) {
 				
 				if(view.getRdbtnGrid().isSelected()) {
-					repaint();
 					g.setColor(Color.black);
 					g.drawRect(i * this.size,  j * this.size, this.size, this.size);
 				}
