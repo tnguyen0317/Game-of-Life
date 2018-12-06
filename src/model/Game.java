@@ -9,7 +9,7 @@ package model;
  */
 public class Game {
 	private Board board;
-	private double updateTime = 1.0;
+	private double updatesPerSecond = 1.0;
 	
 	public Game() {
 	}
@@ -20,7 +20,7 @@ public class Game {
 	
 	public Game(Board board,double updateTime) {
 		this.board = board;
-		this.updateTime = updateTime;
+		this.updatesPerSecond = updateTime;
 	}
 
 	public Board getBoard() {
@@ -31,12 +31,12 @@ public class Game {
 		this.board = board;
 	}
 
-	public double getUpdateTime() {
-		return updateTime;
+	public double getUpdatesPerSecond() {
+		return updatesPerSecond;
 	}
 
-	public void setUpdateTime(double updateTime) {
-		this.updateTime = updateTime;
+	public void setUpdatesPerSecond(double updateTime) {
+		this.updatesPerSecond = updateTime;
 
 
 	}
