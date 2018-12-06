@@ -36,21 +36,16 @@ public class MainWindowController {
 		this._view = View;
 		this._model = Model;
 		
-		setBoard();
+		_model.setBoard(new Board(61,50));
 
 		
+		DrawBoard();
+//		setBoard();
 
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
 		
-		this._view.getBtnStart().addActionListener(e -> this.Update());
-//		this._view.getBtnStart().addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent ae) {
-//				_model.getBoard().UpdateBoard();
-//			}
-//			
-//		});
-
+//		this._view.getBtnStart().addActionListener(e -> this.Update());
 
 		DrawBoard();
 		
@@ -62,56 +57,18 @@ public class MainWindowController {
 	
 	private void setBoard(){
 		Point matrixSize;
+	public void setMatrix() {
 		
 		try {
 
-			matrixSize = getMatrixSize();
 			
-			System.out.println("Width: " + matrixSize.X + "\nHeight: " + matrixSize.Y);
-			_model.setBoard(new Board(matrixSize.X,matrixSize.Y));
-			
-		}
-		catch(NullPointerException e) {
-			System.out.println("Matrix is either incorrectly input on the [width]x[height] format\nor it is simply too large.");
-			System.exit(1);
 			
 		}
 
-		
-	}
-	public Point getMatrixSize() {
-		
-		String lblmatrixSize = _view.getLblmatrixSize().getText();
-		
-		_view.getLblmatrixSize().setText(lblmatrixSize + _view.getComboBox().getSelectedItem().toString());
-		
-		String matrixSize = _view.getComboBox().getSelectedItem().toString();
-		
-		if (CheckDataInput.checkMatrixInput(matrixSize)) {
-			
-			String[] parts = matrixSize.split("x");
-			
-			int width = Integer.parseInt(parts[0]);
-			
-			int height = Integer.parseInt(parts[1]);
-			
-			//Won't allow for grids with width or height higher than 100
-			if (width > 100 || height > 100)
-				return null;
-			
-			
-			Point size = new Point(width,height);
-			
-			return size;
-		}
-		
 
-		return null;
 	}
 	
-	public void DrawBoard() {
-		System.out.println(_view.getRdbtnGrid().isSelected());
-			
+	public void DrawBoard() {	
 		DrawBoard drawBoard = new DrawBoard(15,_model.getBoard(),_view);
 		
 //		_view.getFrame().setBounds(_view.getPanel().getBounds().x,_view.getPanel().getBounds().y + 150,_view.getPanel().getBounds().width,_view.getPanel().getBounds().height + 100);
