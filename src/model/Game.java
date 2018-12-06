@@ -9,6 +9,7 @@ package model;
  */
 public class Game {
 	private Board board;
+	private boolean isPaused = false;
 	private double updatesPerSecond = 1.0;
 	
 	public Game() {
@@ -37,7 +38,13 @@ public class Game {
 
 	public void setUpdatesPerSecond(double updateTime) {
 		this.updatesPerSecond = updateTime;
+	}
 
+	public boolean isPaused() {
+		return isPaused;
+	}
 
+	public void setPaused(boolean isPaused) {
+		this.isPaused = isPaused;
 	}
 }
