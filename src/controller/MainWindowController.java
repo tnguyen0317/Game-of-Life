@@ -6,12 +6,13 @@ package controller;
 import model.*;
 import view.*;
 
+import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import eventhandler.BoardMouseAdapter;
-import eventhandler.BoardMouseMotionAdapter;
+import javax.swing.JComboBox;
 
+import eventhandler.*;
 
 import helpers.CheckDataInput;
 
