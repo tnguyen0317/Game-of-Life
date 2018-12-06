@@ -47,23 +47,30 @@ public class MainWindowController {
 		
 //		this._view.getBtnStart().addActionListener(e -> this.Update());
 
-		DrawBoard();
 		
+		this._view.getBtnSetMatrix().addActionListener(e -> this.setMatrix());
 		
 		setFrameSize();
 
+		this._view.getBtnStart().addActionListener(new StartActionListener(_model) {
+		});
 
 	}
 	
-	private void setBoard(){
-		Point matrixSize;
 	public void setMatrix() {
 		
-		try {
+		int width = Integer.parseInt(_view.getTextFieldWidth().getText());
+		int height = Integer.parseInt(_view.getTextFieldHeight().getText());
 
+		if (width != 0 && height != 0) {
 			
+			_model.getBoard().sizeColumn = width;
+			_model.getBoard().sizeRow = height;
 			
+//			_model.setBoard(new Board(width,height));
 		}
+		else
+			System.out.println("Empty");
 
 
 	}
