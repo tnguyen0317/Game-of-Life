@@ -83,7 +83,7 @@ public class MainWindowController {
 		
 	}
 	
-	private void Update() {
+	public void Update() {
 
 		int count = _model.getBoard().getCountGeneration() + 1;
 		_view.getLblGeneration().setText("Generation: " + count);
