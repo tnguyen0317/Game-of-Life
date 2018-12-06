@@ -32,6 +32,9 @@ public class MainWindowView {
 	private JRadioButton rdbtnGrid;
 	private JComboBox comboBox;
 	private JLabel lblmatrixSize;
+	private JTextField textFieldWidth;
+	private JTextField textFieldHeight;
+	private JButton btnSetMatrix;
 
 	public JFrame getFrame() {
 		return frame;
@@ -97,6 +100,22 @@ public class MainWindowView {
 		this.lblmatrixSize = lblmatrixSize;
 	}
 
+	public JTextField getTextFieldWidth() {
+		return textFieldWidth;
+	}
+
+	public void setTextFieldWidth(JTextField textFieldWidth) {
+		this.textFieldWidth = textFieldWidth;
+	}
+
+	public JTextField getTextFieldHeight() {
+		return textFieldHeight;
+	}
+
+	public void setTextFieldHeight(JTextField textFieldHeight) {
+		this.textFieldHeight = textFieldHeight;
+	}
+
 	/**
 	 * Create the application.
 	 */
@@ -146,7 +165,7 @@ public class MainWindowView {
 		};
 		
 		comboBox = new JComboBox(matrixSizes);
-		comboBox.setBounds(302, 436, 136, 20);
+		comboBox.setBounds(302, 471, 136, 20);
 		frame.getContentPane().add(comboBox);
 		JLabel selectSize = new JLabel("Select matrix size");
 		comboBox.addItem(selectSize.getText());
@@ -156,8 +175,35 @@ public class MainWindowView {
 		lblmatrixSize.setBounds(302, 413, 136, 14);
 		frame.getContentPane().add(lblmatrixSize);
 		
+		textFieldWidth = new JTextField();
+		textFieldWidth.setBounds(302, 436, 28, 20);
+		frame.getContentPane().add(textFieldWidth);
+		textFieldWidth.setColumns(10);
+		
+		textFieldHeight = new JTextField();
+		textFieldHeight.setColumns(10);
+		textFieldHeight.setBounds(353, 436, 28, 20);
+		frame.getContentPane().add(textFieldHeight);
+		
+		JLabel lblX = new JLabel("X");
+		lblX.setBounds(338, 438, 13, 14);
+		frame.getContentPane().add(lblX);
+		
+		btnSetMatrix = new JButton("Set");
+
+		btnSetMatrix.setBounds(389, 433, 66, 23);
+		frame.getContentPane().add(btnSetMatrix);
+		
 		
 		frame.setVisible(true);
 
+	}
+
+	public JButton getBtnSetMatrix() {
+		return btnSetMatrix;
+	}
+
+	public void setBtnSetMatrix(JButton btnSetMatrix) {
+		this.btnSetMatrix = btnSetMatrix;
 	}
 }
