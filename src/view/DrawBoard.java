@@ -11,8 +11,10 @@ import java.awt.Rectangle;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import helpers.CheckDataInput;
 import model.Board;
 import model.Cell;
+import model.Point;
 
 /**
  * @author thong
