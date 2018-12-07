@@ -16,15 +16,19 @@ import view.*;
 public class StartActionListener implements ActionListener, Runnable{
 
 	private Game game;
+	private MainWindowView view;
 	
-	public StartActionListener(Game model) {
+	public StartActionListener(Game model, MainWindowView view) {
 		game = model;
+		this.view = view;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		this.start();
+		
+		view.getBtnStart().setEnabled(false);
 	}
 
 	public void start() {
@@ -43,7 +47,7 @@ public class StartActionListener implements ActionListener, Runnable{
 		double updateTimer = 0.0;
 		
 		long frameCounter = System.currentTimeMillis();
-		int generations = 1;
+		int genCount = game.getBoard().getCountGeneration();
 		
 		while(true)
 		{
@@ -57,9 +61,10 @@ public class StartActionListener implements ActionListener, Runnable{
 			{
 				if (!game.isPaused())
 				{
-					updateTimer = 0;
+					updateTimer = 0.0;
 					game.getBoard().UpdateBoard();
-					generations++;
+					genCount++;
+					view.getLblGeneration().setText("Generation: " + genCount);
 				}
 
 			}
@@ -67,7 +72,10 @@ public class StartActionListener implements ActionListener, Runnable{
 			if(System.currentTimeMillis() - frameCounter >= 1000)
 			{
 				frameCounter = System.currentTimeMillis();
-				System.out.println("Generation : " + generations);
+				System.out.println("Generation : " + genCount);
+
+				//_view.getLblGeneration().setText("Generation: " + count);
+				
 			}
 
 		}

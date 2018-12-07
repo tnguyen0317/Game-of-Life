@@ -26,7 +26,7 @@ public class Main {
 			public void run() {
 				try {
 					MainWindowView window = new MainWindowView();
-					Game game = new Game();
+					Game game = new Game(2.0);
 					
 					MainWindowController controller = new MainWindowController(window,game);
 					

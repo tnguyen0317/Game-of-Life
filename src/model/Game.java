@@ -15,13 +15,17 @@ public class Game {
 	public Game() {
 	}
 	
+	public Game(double update) {
+		this.updatesPerSecond = update;
+	}
+	
 	public Game(int column, int row) {
 		board = new Board(column,row);
 	}
 	
-	public Game(Board board,double updateTime) {
+	public Game(Board board) {
 		this.board = board;
-		this.updatesPerSecond = updateTime;
+;
 	}
 
 	public Board getBoard() {
