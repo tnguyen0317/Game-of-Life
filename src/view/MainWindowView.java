@@ -35,6 +35,7 @@ public class MainWindowView {
 	private JTextField textFieldWidth;
 	private JTextField textFieldHeight;
 	private JButton btnSetMatrix;
+	private JButton btnClear;
 
 	public JFrame getFrame() {
 		return frame;
@@ -116,6 +117,21 @@ public class MainWindowView {
 		this.textFieldHeight = textFieldHeight;
 	}
 
+	public JButton getBtnSetMatrix() {
+		return btnSetMatrix;
+	}
+
+	public void setBtnSetMatrix(JButton btnSetMatrix) {
+		this.btnSetMatrix = btnSetMatrix;
+	}
+
+	public JButton getBtnClear() {
+		return btnClear;
+	}
+
+	public void setBtnClear(JButton btnClear) {
+		this.btnClear = btnClear;
+	}
 	/**
 	 * Create the application.
 	 */
@@ -194,16 +210,13 @@ public class MainWindowView {
 		btnSetMatrix.setBounds(389, 433, 66, 23);
 		frame.getContentPane().add(btnSetMatrix);
 		
+		btnClear = new JButton("Clear");
+		btnClear.setBounds(537, 434, 158, 43);
+		frame.getContentPane().add(btnClear);
+		
 		
 		frame.setVisible(true);
 
 	}
 
-	public JButton getBtnSetMatrix() {
-		return btnSetMatrix;
-	}
-
-	public void setBtnSetMatrix(JButton btnSetMatrix) {
-		this.btnSetMatrix = btnSetMatrix;
-	}
 }
