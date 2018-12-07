@@ -1,0 +1,13 @@
+TODOS:
+
+- Kan inte sätta matrisstorleken något över initieringsstorleken (61x26). Sätta någon gräns på matrisstorleken?????
+
+- Lägg till initialization probabiltity
+
+- Lägg till pause och clear funktion
+
+- Användaren ska kunna ändra regler för cellerna
+
+- Användaren ska kunna ladda in fördefinierade mönstren
+
+- Client/server. Client requestar en model objekt från servern ????????? Kanske token authorization för att logga in.....
