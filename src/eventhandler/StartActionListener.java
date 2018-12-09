@@ -22,19 +22,25 @@ public class StartActionListener implements ActionListener, Runnable{
 	public StartActionListener(Game model, MainWindowView view) {
 		game = model;
 		this.view = view;
+		
 		t1 = new Thread(this);
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+		
+
 		this.start();
 		
 		view.getBtnStart().setEnabled(false);
+		game.setPaused(false);
+		
+
 	}
 
 	public void start() {
-		new Thread(this).start();
+
 		t1.start();
 	}
 	
@@ -62,13 +68,16 @@ public class StartActionListener implements ActionListener, Runnable{
 			
 			if(updateTimer > frameRate)
 			{
+				updateTimer = 0.0;
+				
 				if (!game.isPaused())
 				{
-					updateTimer = 0.0;
+
 					game.getBoard().UpdateBoard();
 					genCount++;
 					view.getLblGeneration().setText("Generation: " + genCount);
 				}
+
 
 			}
 			

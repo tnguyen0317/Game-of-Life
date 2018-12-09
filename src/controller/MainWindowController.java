@@ -37,7 +37,6 @@ public class MainWindowController {
 		this._model = Model;
 		
 		_model.setBoard(new Board(61,26));
-
 		
 		DrawBoard();
 //		setBoard();
@@ -51,6 +50,7 @@ public class MainWindowController {
 		this._view.getBtnSetMatrix().addActionListener(e -> this.setMatrix());
 		
 		this._view.getBtnClear().addActionListener(e -> this.ClearBoard());
+		
 		
 		setFrameSize();
 
