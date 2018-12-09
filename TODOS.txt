@@ -1,7 +1,5 @@
 TODOS:
 
-- Kan inte sätta matrisstorleken något över initieringsstorleken (61x26). Sätta någon gräns på matrisstorleken?????
-
 - Lägg till initialization probabiltity
 
 - Användaren ska kunna ändra regler för cellerna
