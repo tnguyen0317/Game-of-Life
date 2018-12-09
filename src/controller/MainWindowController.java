@@ -51,6 +51,7 @@ public class MainWindowController {
 		
 		this._view.getBtnClear().addActionListener(e -> this.ClearBoard());
 		
+		this._view.getBtnPause().addActionListener(e -> this.PauseGame());
 		
 		setFrameSize();
 
@@ -59,6 +60,19 @@ public class MainWindowController {
 
 	}
 	
+	public void PauseGame() {
+		
+		if(this._model.isPaused()) {
+			this._model.setPaused(false);
+			this._view.getBtnPause().setText("Pause");
+		}
+
+		else {
+			this._model.setPaused(true);
+			this._view.getBtnPause().setText("Resume");
+		}
+		
+	}
 	public void setMatrix() {
 		
 		int width = Integer.parseInt(_view.getTextFieldWidth().getText());
