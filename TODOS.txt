@@ -4,8 +4,6 @@ TODOS:
 
 - Lägg till initialization probabiltity
 
-- Lägg till pause och clear funktion
-
 - Användaren ska kunna ändra regler för cellerna
 
 - Användaren ska kunna ladda in fördefinierade mönstren
