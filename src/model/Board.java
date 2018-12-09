@@ -22,21 +22,6 @@ public class Board {
 	public Board(int column, int row) {
 		this.sizeColumn = column;
 		this.sizeRow = row;
-
-		this.cells = new Cell[sizeColumn][sizeRow];
-
-		this.nextGeneration = new boolean[sizeColumn][sizeRow];
-		
-		final int size = 15;
-		
-		//foreach element in the board, initialize it with a new instance of a Cell
-		for(int i = 0; i < sizeColumn; i++)
-			for(int j = 0; j < sizeRow; j++)
-			{
-				this.nextGeneration[i][j] = false;
-				this.cells[i][j] = new Cell(new Point(i,j),size);
-
-			}
 	}
 	
 	//Getters and setters
@@ -111,5 +96,22 @@ public class Board {
 		for(int i = 0; i < sizeColumn; i++)
 			for(int j  = 0; j < sizeRow; j++)
 				this.cells[i][j].setAlive(false);
+	}
+	
+	public void InitBoard() {
+		this.cells = new Cell[sizeColumn][sizeRow];
+
+		this.nextGeneration = new boolean[sizeColumn][sizeRow];
+		
+		final int size = 15;
+		
+		//foreach element in the board, initialize it with a new instance of a Cell
+		for(int i = 0; i < sizeColumn; i++)
+			for(int j = 0; j < sizeRow; j++)
+			{
+				this.nextGeneration[i][j] = false;
+				this.cells[i][j] = new Cell(new Point(i,j),size);
+
+			}
 	}
 }
