@@ -17,10 +17,12 @@ public class StartActionListener implements ActionListener, Runnable{
 
 	private Game game;
 	private MainWindowView view;
+	private Thread t1;
 	
 	public StartActionListener(Game model, MainWindowView view) {
 		game = model;
 		this.view = view;
+		t1 = new Thread(this);
 	}
 	
 	@Override
@@ -33,6 +35,7 @@ public class StartActionListener implements ActionListener, Runnable{
 
 	public void start() {
 		new Thread(this).start();
+		t1.start();
 	}
 	
 	@Override
