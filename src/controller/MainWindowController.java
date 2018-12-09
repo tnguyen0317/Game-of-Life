@@ -37,6 +37,8 @@ public class MainWindowController {
 		this._model = Model;
 		
 		_model.setBoard(new Board(61,26));
+		_view.getLblmatrixSize().setText("Current size: " + _model.getBoard().sizeColumn + "x" + _model.getBoard().sizeRow);
+		_model.getBoard().InitBoard();
 		
 		DrawBoard();
 //		setBoard();
@@ -73,6 +75,7 @@ public class MainWindowController {
 		}
 		
 	}
+	
 	public void setMatrix() {
 		
 		int width = Integer.parseInt(_view.getTextFieldWidth().getText());
@@ -84,6 +87,8 @@ public class MainWindowController {
 			_model.getBoard().sizeRow = height;
 			
 //			_model.setBoard(new Board(width,height));
+			_model.getBoard().InitBoard();
+			_view.getLblmatrixSize().setText("Current size: " + width + "x" + height);
 		}
 		else
 			System.out.println("Empty");
