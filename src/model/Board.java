@@ -3,6 +3,8 @@
  */
 package model;
 
+import java.util.Random;
+
 /**
  * @author minh
  *
@@ -60,6 +62,10 @@ public class Board {
 				result = false;
 				count = this.cells[i][j].GetNeighbours(this);
 					
+				Random random = new Random();
+				
+				float chance = random.nextFloat();
+				
 				//apply rules
 				
 				//Death because of loneliness
@@ -75,6 +81,9 @@ public class Board {
 				if(count == 3 && !alive)
 					result = true;
 				
+				else if (chance <= 0.02f)
+					result = true;
+				
 				this.nextGeneration[i][j] = result;
 				
 			}
@@ -84,7 +93,6 @@ public class Board {
 		NextGeneration();
 			
 	}
-	
 	
 	public void NextGeneration() {
 		for(int i = 0; i < sizeColumn; i++)

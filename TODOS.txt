@@ -1,7 +1,5 @@
 TODOS:
 
-- Lägg till initialization probabiltity
-
 - Användaren ska kunna ändra regler för cellerna
 
 - Användaren ska kunna ladda in fördefinierade mönstren
