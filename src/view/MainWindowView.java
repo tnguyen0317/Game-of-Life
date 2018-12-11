@@ -30,12 +30,13 @@ public class MainWindowView {
 	private JPanel panel;
 	private JLabel lblGeneration;
 	private JRadioButton rdbtnGrid;
-	private JComboBox comboBox;
 	private JLabel lblmatrixSize;
 	private JTextField textFieldWidth;
 	private JTextField textFieldHeight;
 	private JButton btnSetMatrix;
 	private JButton btnClear;
+	private JTextField textFieldCellSize;
+	private JButton btnSetCellSize;
 
 	public JFrame getFrame() {
 		return frame;
@@ -85,14 +86,6 @@ public class MainWindowView {
 		this.rdbtnGrid = rdbtnGrid;
 	}
 
-	public JComboBox getComboBox() {
-		return comboBox;
-	}
-
-	public void setComboBox(JComboBox comboBox) {
-		this.comboBox = comboBox;
-	}
-
 	public JLabel getLblmatrixSize() {
 		return lblmatrixSize;
 	}
@@ -132,6 +125,22 @@ public class MainWindowView {
 	public void setBtnClear(JButton btnClear) {
 		this.btnClear = btnClear;
 	}
+	public JTextField getTextFieldCellSize() {
+		return textFieldCellSize;
+	}
+
+	public void setTextFieldCellSize(JTextField textFieldCellSize) {
+		this.textFieldCellSize = textFieldCellSize;
+	}
+
+	public JButton getBtnSetCellSize() {
+		return btnSetCellSize;
+	}
+
+	public void setBtnSetCellSize(JButton btnSetCellSize) {
+		this.btnSetCellSize = btnSetCellSize;
+	}
+
 	/**
 	 * Create the application.
 	 */
@@ -163,12 +172,12 @@ public class MainWindowView {
 		frame.getContentPane().add(btnPause);
 		
 		lblGeneration = new JLabel("Generation: 0");
-		lblGeneration.setBounds(178, 413, 152, 14);
+		lblGeneration.setBounds(338, 474, 152, 14);
 		frame.getContentPane().add(lblGeneration);
 		
 		rdbtnGrid = new JRadioButton("Grid");
 		rdbtnGrid.setSelected(true);
-		rdbtnGrid.setBounds(174, 434, 53, 23);
+		rdbtnGrid.setBounds(233, 423, 53, 23);
 		frame.getContentPane().add(rdbtnGrid);
 		
 
@@ -179,13 +188,7 @@ public class MainWindowView {
 				"12x12",
 				"53x32"
 		};
-		
-		comboBox = new JComboBox(matrixSizes);
-		comboBox.setBounds(302, 471, 136, 20);
-		frame.getContentPane().add(comboBox);
 		JLabel selectSize = new JLabel("Select matrix size");
-		comboBox.addItem(selectSize.getText());
-		comboBox.setEditable(true);
 		
 		lblmatrixSize = new JLabel("Current size: ");
 		lblmatrixSize.setBounds(302, 413, 136, 14);
@@ -211,12 +214,20 @@ public class MainWindowView {
 		frame.getContentPane().add(btnSetMatrix);
 		
 		btnClear = new JButton("Clear");
-		btnClear.setBounds(537, 434, 158, 43);
+		btnClear.setBounds(172, 460, 158, 43);
 		frame.getContentPane().add(btnClear);
+		
+		textFieldCellSize = new JTextField();
+		textFieldCellSize.setBounds(522, 436, 35, 20);
+		frame.getContentPane().add(textFieldCellSize);
+		textFieldCellSize.setColumns(10);
+		
+		btnSetCellSize = new JButton("Set");
+		btnSetCellSize.setBounds(565, 435, 66, 23);
+		frame.getContentPane().add(btnSetCellSize);
 		
 		
 		frame.setVisible(true);
 
 	}
-
 }
