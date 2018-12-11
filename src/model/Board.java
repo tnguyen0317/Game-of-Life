@@ -12,6 +12,7 @@ public class Board {
 	private boolean[][] nextGeneration;
 	private int countGeneration = 0;
 	
+	public int size = 15;
 	public int sizeColumn;
 	public int sizeRow;
 
@@ -19,9 +20,10 @@ public class Board {
 	public Board() {
 	}
 
-	public Board(int column, int row) {
+	public Board(int column, int row, int size) {
 		this.sizeColumn = column;
 		this.sizeRow = row;
+		this.size = size;
 	}
 	
 	//Getters and setters
@@ -102,8 +104,6 @@ public class Board {
 		this.cells = new Cell[sizeColumn][sizeRow];
 
 		this.nextGeneration = new boolean[sizeColumn][sizeRow];
-		
-		final int size = 15;
 		
 		//foreach element in the board, initialize it with a new instance of a Cell
 		for(int i = 0; i < sizeColumn; i++)

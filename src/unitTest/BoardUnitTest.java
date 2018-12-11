@@ -17,7 +17,7 @@ class BoardUnitTest {
 
 	Board b;
 	void setUp() {
-		b = new Board(15,15);
+		b = new Board(15,15,15);
 		
 		
 	}

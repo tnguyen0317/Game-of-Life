@@ -19,8 +19,8 @@ public class Game {
 		this.updatesPerSecond = update;
 	}
 	
-	public Game(int column, int row) {
-		board = new Board(column,row);
+	public Game(int column, int row, int size) {
+		board = new Board(column,row, size);
 	}
 	
 	public Game(Board board) {
