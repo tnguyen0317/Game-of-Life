@@ -29,55 +29,8 @@ public class DrawBoard extends JPanel{
 	public DrawBoard(Board b,MainWindowView View) {
 		board = b;
 		this.view = View;
-		
-//		setBoard();
-		
 
 	}
-	
-//	private void setBoard(){
-//		Point matrixSize;
-//		matrixSize = getMatrixSize();
-//
-//		if (matrixSize == null) {	
-//			System.out.println("Matrix is either incorrectly input on the [width]x[height] format\nor it is simply too large.");
-//			return;
-//		}
-//		
-//		System.out.println("Width: " + matrixSize.X + "\nHeight: " + matrixSize.Y);
-//		board.sizeColumn = matrixSize.X;
-//		board.sizeRow = matrixSize.Y;
-//	
-//	}
-//	public Point getMatrixSize() {
-//		
-//		String lblmatrixSize = view.getLblmatrixSize().getText();
-//		
-//		view.getLblmatrixSize().setText(lblmatrixSize + view.getComboBox().getSelectedItem().toString());
-//		
-//		String matrixSize = view.getComboBox().getSelectedItem().toString();
-//		
-//		if (CheckDataInput.checkMatrixInput(matrixSize)) {
-//			
-//			String[] parts = matrixSize.split("x");
-//			
-//			int width = Integer.parseInt(parts[0]);
-//			
-//			int height = Integer.parseInt(parts[1]);
-//			
-//			//Won't allow for grids with width or height higher than 100
-//			if (width > 100 || height > 100)
-//				return null;
-//			
-//			
-//			Point size = new Point(width,height);
-//			
-//			return size;
-//		}
-//		
-//
-//		return null;
-//	}
 	
 	@Override
 	public void paintComponent(Graphics g) {
