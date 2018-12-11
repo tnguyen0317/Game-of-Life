@@ -36,12 +36,10 @@ public class MainWindowController {
 		this._view = View;
 		this._model = Model;
 		
-		_model.setBoard(new Board(61,26));
+		_model.setBoard(new Board(61,26,15));
 		_view.getLblmatrixSize().setText("Current size: " + _model.getBoard().sizeColumn + "x" + _model.getBoard().sizeRow);
 		_model.getBoard().InitBoard();
 		
-		DrawBoard();
-//		setBoard();
 
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
@@ -56,6 +54,10 @@ public class MainWindowController {
 		this._view.getBtnPause().addActionListener(e -> this.PauseGame());
 		
 		setFrameSize();
+		
+		DrawBoard();
+//		setBoard();
+
 
 		this._view.getBtnStart().addActionListener(new StartActionListener(_model,_view) {
 		});
@@ -111,7 +113,7 @@ public class MainWindowController {
 	}
 	
 	public void DrawBoard() {	
-		DrawBoard drawBoard = new DrawBoard(15,_model.getBoard(),_view);
+		DrawBoard drawBoard = new DrawBoard(_model.getBoard(),_view);
 		
 //		_view.getFrame().setBounds(_view.getPanel().getBounds().x,_view.getPanel().getBounds().y + 150,_view.getPanel().getBounds().width,_view.getPanel().getBounds().height + 100);
 //		_view.getPanel().setBounds(0,0,drawBoard.getWidth() * drawBoard.getColumn(),drawBoard.getHeight() * drawBoard.getRow());

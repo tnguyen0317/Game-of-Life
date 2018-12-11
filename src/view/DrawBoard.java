@@ -22,21 +22,17 @@ import model.Point;
  */
 public class DrawBoard extends JPanel{
 
-
-	private final int size;
 	private Board board;
 	private MainWindowView view;
 	
 	
-	public DrawBoard(int size,Board b,MainWindowView View) {
-
-
-		this.size = size;
+	public DrawBoard(Board b,MainWindowView View) {
 		board = b;
 		this.view = View;
 		
 //		setBoard();
 		
+
 	}
 	
 //	private void setBoard(){
@@ -86,7 +82,7 @@ public class DrawBoard extends JPanel{
 	@Override
 	public void paintComponent(Graphics g) {
 
-
+		int size = board.size;
 		
 		super.paintComponent(g);
 		for(int i = 0; i < board.sizeColumn; i++)
@@ -94,7 +90,7 @@ public class DrawBoard extends JPanel{
 				
 				if(view.getRdbtnGrid().isSelected()) {
 					g.setColor(Color.black);
-					g.drawRect(i * this.size,  j * this.size, this.size, this.size);
+					g.drawRect(i * size,  j * size, size, size);
 				}
 
 				
@@ -102,7 +98,7 @@ public class DrawBoard extends JPanel{
 				
 				g.setColor(Color.black);
 				if (cell.isAlive()) {
-					g.fillRect(i * this.size,  j * this.size, this.size, this.size);
+					g.fillRect(i * size,  j * size, size, size);
 				}
 				repaint();
 			}
