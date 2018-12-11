@@ -76,6 +76,20 @@ public class MainWindowController {
 		
 	}
 	
+	public void SetCellSize() {
+		
+		int size = Integer.parseInt(_view.getTextFieldCellSize().getText());
+		
+		if (size != 0) {
+			_model.getBoard().size = size;
+					
+			_model.getBoard().InitBoard();
+			
+		}
+		else
+			System.out.println("Can't be 0");
+		
+	}
 	public void setMatrix() {
 		
 		int width = Integer.parseInt(_view.getTextFieldWidth().getText());
