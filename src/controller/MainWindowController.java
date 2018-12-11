@@ -53,6 +53,8 @@ public class MainWindowController {
 		
 		this._view.getBtnPause().addActionListener(e -> this.PauseGame());
 		
+		this._view.getBtnSetCellSize().addActionListener(e -> this.SetCellSize());
+		
 		setFrameSize();
 		
 		DrawBoard();
