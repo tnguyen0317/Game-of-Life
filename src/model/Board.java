@@ -51,7 +51,7 @@ public class Board {
 	}
 	//Update the board with a constant time counting each cells neighbours
 	//and applying rules of the game
-	public void UpdateBoard() {
+	public void UpdateBoard(boolean initProb) {
 		boolean alive,result;
 		int count;
 		
@@ -83,8 +83,9 @@ public class Board {
 				if(count == 3 && !alive)
 					result = true;
 				
-				else if (chance <= 0.02f)
-					result = true;
+				if(initProb)
+					if (chance <= 0.02f)
+						result = true;
 				
 				this.nextGeneration[i][j] = result;
 				

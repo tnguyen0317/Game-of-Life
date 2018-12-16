@@ -73,7 +73,7 @@ public class StartActionListener implements ActionListener, Runnable{
 				if (!game.isPaused())
 				{
 
-					game.getBoard().UpdateBoard();
+					game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
 					genCount++;
 					view.getLblGeneration().setText("Generation: " + genCount);
 				}
