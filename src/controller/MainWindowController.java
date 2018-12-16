@@ -54,7 +54,7 @@ public class MainWindowController {
 		this._view.getBtnPause().addActionListener(e -> this.PauseGame());
 		
 		this._view.getBtnSetCellSize().addActionListener(e -> this.SetCellSize());
-		
+
 		setFrameSize();
 		
 		DrawBoard();
@@ -66,6 +66,7 @@ public class MainWindowController {
 
 	}
 	
+
 	public void PauseGame() {
 		
 		if(this._model.isPaused()) {
@@ -139,7 +140,7 @@ public class MainWindowController {
 
 		int count = _model.getBoard().getCountGeneration() + 1;
 		_view.getLblGeneration().setText("Generation: " + count);
-		_model.getBoard().UpdateBoard();
+//		_model.getBoard().UpdateBoard();
 
 
 	}
