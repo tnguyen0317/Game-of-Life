@@ -37,6 +37,10 @@ public class MainWindowView {
 	private JButton btnClear;
 	private JTextField textFieldCellSize;
 	private JButton btnSetCellSize;
+	private JTextField textFieldInitProbRate;
+	private JTextField textFieldUpdateRate;
+	private JButton buttonReset;
+	private JRadioButton rdbtnEnableInitializationProbability;
 
 	public JFrame getFrame() {
 		return frame;
@@ -141,6 +145,38 @@ public class MainWindowView {
 		this.btnSetCellSize = btnSetCellSize;
 	}
 
+	public JTextField getTextFieldInitProbRate() {
+		return textFieldInitProbRate;
+	}
+
+	public void setTextFieldInitProbRate(JTextField textFieldInitProbRate) {
+		this.textFieldInitProbRate = textFieldInitProbRate;
+	}
+
+	public JTextField getTextFieldUpdateRate() {
+		return textFieldUpdateRate;
+	}
+
+	public void setTextFieldUpdateRate(JTextField textFieldUpdateRate) {
+		this.textFieldUpdateRate = textFieldUpdateRate;
+	}
+
+	public JButton getButtonReset() {
+		return buttonReset;
+	}
+
+	public void setButtonReset(JButton buttonReset) {
+		this.buttonReset = buttonReset;
+	}
+
+	public JRadioButton getRdbtnEnableInitializationProbability() {
+		return rdbtnEnableInitializationProbability;
+	}
+
+	public void setRdbtnEnableInitializationProbability(JRadioButton rdbtnEnableInitializationProbability) {
+		this.rdbtnEnableInitializationProbability = rdbtnEnableInitializationProbability;
+	}
+
 	/**
 	 * Create the application.
 	 */
@@ -172,12 +208,12 @@ public class MainWindowView {
 		frame.getContentPane().add(btnPause);
 		
 		lblGeneration = new JLabel("Generation: 0");
-		lblGeneration.setBounds(338, 474, 152, 14);
+		lblGeneration.setBounds(338, 413, 152, 14);
 		frame.getContentPane().add(lblGeneration);
 		
 		rdbtnGrid = new JRadioButton("Grid");
 		rdbtnGrid.setSelected(true);
-		rdbtnGrid.setBounds(233, 423, 53, 23);
+		rdbtnGrid.setBounds(338, 433, 53, 23);
 		frame.getContentPane().add(rdbtnGrid);
 		
 
@@ -191,40 +227,59 @@ public class MainWindowView {
 		JLabel selectSize = new JLabel("Select matrix size");
 		
 		lblmatrixSize = new JLabel("Current size: ");
-		lblmatrixSize.setBounds(302, 413, 136, 14);
+		lblmatrixSize.setBounds(503, 413, 136, 14);
 		frame.getContentPane().add(lblmatrixSize);
 		
 		textFieldWidth = new JTextField();
-		textFieldWidth.setBounds(302, 436, 28, 20);
+		textFieldWidth.setBounds(671, 413, 28, 20);
 		frame.getContentPane().add(textFieldWidth);
 		textFieldWidth.setColumns(10);
 		
 		textFieldHeight = new JTextField();
 		textFieldHeight.setColumns(10);
-		textFieldHeight.setBounds(353, 436, 28, 20);
+		textFieldHeight.setBounds(671, 444, 28, 20);
 		frame.getContentPane().add(textFieldHeight);
 		
 		JLabel lblX = new JLabel("X");
-		lblX.setBounds(338, 438, 13, 14);
+		lblX.setBounds(617, 427, 13, 14);
 		frame.getContentPane().add(lblX);
 		
 		btnSetMatrix = new JButton("Set");
 
-		btnSetMatrix.setBounds(389, 433, 66, 23);
+		btnSetMatrix.setBounds(671, 470, 66, 23);
 		frame.getContentPane().add(btnSetMatrix);
 		
 		btnClear = new JButton("Clear");
-		btnClear.setBounds(172, 460, 158, 43);
+		btnClear.setBounds(174, 413, 158, 43);
 		frame.getContentPane().add(btnClear);
 		
 		textFieldCellSize = new JTextField();
-		textFieldCellSize.setBounds(522, 436, 35, 20);
+		textFieldCellSize.setBounds(781, 410, 35, 20);
 		frame.getContentPane().add(textFieldCellSize);
 		textFieldCellSize.setColumns(10);
 		
 		btnSetCellSize = new JButton("Set");
-		btnSetCellSize.setBounds(565, 435, 66, 23);
+		btnSetCellSize.setBounds(826, 413, 66, 23);
 		frame.getContentPane().add(btnSetCellSize);
+		
+		textFieldInitProbRate = new JTextField();
+		textFieldInitProbRate.setColumns(10);
+		textFieldInitProbRate.setBounds(781, 436, 35, 20);
+		frame.getContentPane().add(textFieldInitProbRate);
+		
+		textFieldUpdateRate = new JTextField();
+		textFieldUpdateRate.setColumns(10);
+		textFieldUpdateRate.setBounds(781, 471, 35, 20);
+		frame.getContentPane().add(textFieldUpdateRate);
+		
+		buttonReset = new JButton("Reset");
+		buttonReset.setBounds(174, 460, 158, 43);
+		frame.getContentPane().add(buttonReset);
+		
+		rdbtnEnableInitializationProbability = new JRadioButton("Enable initialization probability rate");
+		rdbtnEnableInitializationProbability.setSelected(false);
+		rdbtnEnableInitializationProbability.setBounds(338, 460, 197, 23);
+		frame.getContentPane().add(rdbtnEnableInitializationProbability);
 		
 		
 		frame.setVisible(true);
