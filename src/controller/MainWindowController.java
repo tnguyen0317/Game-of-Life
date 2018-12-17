@@ -83,16 +83,32 @@ public class MainWindowController {
 	
 	public void SetCellSize() {
 		
-		int size = Integer.parseInt(_view.getTextFieldCellSize().getText());
 		
-		if (size != 0) {
-			_model.getBoard().size = size;
-					
-			_model.getBoard().InitBoard();
+		try {
+			int size = Integer.parseInt(_view.getTextFieldCellSize().getText());
 			
+			double probRate = Double.parseDouble(_view.getTextFieldInitProbRate().getText());
+			
+			double updateRate = Double.parseDouble(_view.getTextFieldUpdateRate().getText());
+			
+			if (size != 0 && probRate != 0.0 && updateRate != 0.0) {
+				
+				_model.getBoard().setInitProbRate(probRate);
+				
+				_model.setUpdatesPerSecond(updateRate);
+				
+				_model.getBoard().size = size;
+						
+				_model.getBoard().InitBoard();
+				
+			}
+			else
+				System.out.println("Can't be 0");
 		}
-		else
-			System.out.println("Can't be 0");
+		catch(NumberFormatException e) {
+			JOptionPane.showMessageDialog(_view.getFrame(), "Please fill in the fields correctly!");
+		}
+
 		
 	}
 	public void setMatrix() {
@@ -108,9 +124,28 @@ public class MainWindowController {
 //			_model.setBoard(new Board(width,height));
 			_model.getBoard().InitBoard();
 			_view.getLblmatrixSize().setText("Current size: " + width + "x" + height);
+		
+		try {
+			int width = Integer.parseInt(_view.getTextFieldWidth().getText());
+			int height = Integer.parseInt(_view.getTextFieldHeight().getText());
+
+			if (width != 0 && height != 0) {
+				
+				_model.getBoard().sizeColumn = width;
+				_model.getBoard().sizeRow = height;
+				
+//				_model.setBoard(new Board(width,height));
+				_model.getBoard().InitBoard();
+				_view.getLblmatrixSize().setText("Current size: " + width + "x" + height);
+			}
+			else
+				JOptionPane.showMessageDialog(_view.getFrame(), "Fields cannot be 0!");
 		}
-		else
-			System.out.println("Empty");
+		catch(NumberFormatException e) {
+			System.out.println("Please fill in all fields");
+			JOptionPane.showMessageDialog(_view.getFrame(), "Please fill in all fields correctly!");
+		}
+
 
 
 	}
