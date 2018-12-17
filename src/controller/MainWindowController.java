@@ -123,17 +123,6 @@ public class MainWindowController {
 	}
 	public void setMatrix() {
 		
-		int width = Integer.parseInt(_view.getTextFieldWidth().getText());
-		int height = Integer.parseInt(_view.getTextFieldHeight().getText());
-
-		if (width != 0 && height != 0) {
-			
-			_model.getBoard().sizeColumn = width;
-			_model.getBoard().sizeRow = height;
-			
-//			_model.setBoard(new Board(width,height));
-			_model.getBoard().InitBoard();
-			_view.getLblmatrixSize().setText("Current size: " + width + "x" + height);
 		
 		try {
 			int width = Integer.parseInt(_view.getTextFieldWidth().getText());
