@@ -13,6 +13,7 @@ public class Board {
 	private Cell[][] cells;
 	private boolean[][] nextGeneration;
 	private int countGeneration = 0;
+	private double initProbRate = 0.02;
 	
 	public int size = 15;
 	public int sizeColumn;
@@ -49,14 +50,19 @@ public class Board {
 	public void setCountGeneration(int countGeneration) {
 		this.countGeneration = countGeneration;
 	}
+	public double getInitProbRate() {
+		return initProbRate;
+	}
+
+	public void setInitProbRate(double initProbRate) {
+		this.initProbRate = initProbRate;
+	}
+
 	//Update the board with a constant time counting each cells neighbours
 	//and applying rules of the game
 	public void UpdateBoard(boolean initProb) {
 		boolean alive,result;
 		int count;
-		
-//		if (isPaused)
-//			return;
 		
 		for(int i = 0; i < sizeColumn; i++) {
 			for (int j = 0; j < sizeRow; j++) {
@@ -84,7 +90,7 @@ public class Board {
 					result = true;
 				
 				if(initProb)
-					if (chance <= 0.02f)
+					if (chance <= initProbRate)
 						result = true;
 				
 				this.nextGeneration[i][j] = result;
