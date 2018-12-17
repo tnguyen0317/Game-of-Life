@@ -215,38 +215,28 @@ public class MainWindowView {
 		rdbtnGrid.setSelected(true);
 		rdbtnGrid.setBounds(338, 433, 53, 23);
 		frame.getContentPane().add(rdbtnGrid);
-		
-
-		String[] matrixSizes = {
-				"61x26",
-				"10x10",
-				"11x11",
-				"12x12",
-				"53x32"
-		};
-		JLabel selectSize = new JLabel("Select matrix size");
-		
+			
 		lblmatrixSize = new JLabel("Current size: ");
-		lblmatrixSize.setBounds(503, 413, 136, 14);
+		lblmatrixSize.setBounds(503, 413, 113, 14);
 		frame.getContentPane().add(lblmatrixSize);
 		
 		textFieldWidth = new JTextField();
-		textFieldWidth.setBounds(671, 413, 28, 20);
+		textFieldWidth.setBounds(656, 413, 28, 20);
 		frame.getContentPane().add(textFieldWidth);
 		textFieldWidth.setColumns(10);
 		
 		textFieldHeight = new JTextField();
 		textFieldHeight.setColumns(10);
-		textFieldHeight.setBounds(671, 444, 28, 20);
+		textFieldHeight.setBounds(656, 436, 28, 20);
 		frame.getContentPane().add(textFieldHeight);
 		
 		JLabel lblX = new JLabel("X");
-		lblX.setBounds(617, 427, 13, 14);
+		lblX.setBounds(552, 437, 13, 14);
 		frame.getContentPane().add(lblX);
 		
 		btnSetMatrix = new JButton("Set");
 
-		btnSetMatrix.setBounds(671, 470, 66, 23);
+		btnSetMatrix.setBounds(605, 470, 66, 23);
 		frame.getContentPane().add(btnSetMatrix);
 		
 		btnClear = new JButton("Clear");
@@ -259,7 +249,7 @@ public class MainWindowView {
 		textFieldCellSize.setColumns(10);
 		
 		btnSetCellSize = new JButton("Set");
-		btnSetCellSize.setBounds(826, 413, 66, 23);
+		btnSetCellSize.setBounds(831, 470, 66, 23);
 		frame.getContentPane().add(btnSetCellSize);
 		
 		textFieldInitProbRate = new JTextField();
@@ -280,6 +270,26 @@ public class MainWindowView {
 		rdbtnEnableInitializationProbability.setSelected(false);
 		rdbtnEnableInitializationProbability.setBounds(338, 460, 197, 23);
 		frame.getContentPane().add(rdbtnEnableInitializationProbability);
+		
+		JLabel lblWidth = new JLabel("Width:");
+		lblWidth.setBounds(617, 413, 46, 14);
+		frame.getContentPane().add(lblWidth);
+		
+		JLabel lblHeight = new JLabel("Height:");
+		lblHeight.setBounds(617, 442, 46, 14);
+		frame.getContentPane().add(lblHeight);
+		
+		JLabel lblCell = new JLabel("Cell:");
+		lblCell.setBounds(725, 413, 46, 14);
+		frame.getContentPane().add(lblCell);
+		
+		JLabel lblInitProbRate = new JLabel("Init prob rate:");
+		lblInitProbRate.setBounds(694, 437, 77, 14);
+		frame.getContentPane().add(lblInitProbRate);
+		
+		JLabel lblUpdateRate = new JLabel("Update rate:");
+		lblUpdateRate.setBounds(697, 474, 74, 14);
+		frame.getContentPane().add(lblUpdateRate);
 		
 		
 		frame.setVisible(true);
