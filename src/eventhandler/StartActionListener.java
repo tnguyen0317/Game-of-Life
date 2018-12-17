@@ -34,6 +34,11 @@ public class StartActionListener implements ActionListener, Runnable{
 		this.start();
 		
 		view.getBtnStart().setEnabled(false);
+		view.getBtnClear().setEnabled(false);
+		view.getBtnSetCellSize().setEnabled(false);
+		view.getBtnSetMatrix().setEnabled(false);
+		view.getButtonReset().setEnabled(false);
+		
 		game.setPaused(false);
 		
 
