@@ -40,7 +40,13 @@ public class MainWindowController {
 		_view.getLblmatrixSize().setText("Current size: " + _model.getBoard().sizeColumn + "x" + _model.getBoard().sizeRow);
 		_model.getBoard().InitBoard();
 		
+		ActionListener();
 
+		DrawBoard();
+
+	}
+	
+	private void ActionListener() {
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
 		
@@ -54,20 +60,23 @@ public class MainWindowController {
 		this._view.getBtnPause().addActionListener(e -> this.PauseGame());
 		
 		this._view.getBtnSetCellSize().addActionListener(e -> this.SetCellSize());
-
-		setFrameSize();
 		
-		DrawBoard();
-//		setBoard();
-
-
-		this._view.getBtnStart().addActionListener(new StartActionListener(_model,_view) {
-		});
-
+		this._view.getButtonReset().addActionListener(e -> this.Reset());
+		
+//		_view.getButtonReset().addActionListener(e -> _view.getBtnStart());
+		this._view.getBtnStart().addActionListener(new StartActionListener(_model,_view)); 
 	}
 	
+	public void Reset() {
+
+	}
 
 	public void PauseGame() {
+		
+		_view.getBtnClear().setEnabled(true);
+		_view.getBtnSetCellSize().setEnabled(true);
+		_view.getBtnSetMatrix().setEnabled(true);
+		_view.getButtonReset().setEnabled(true);
 		
 		if(this._model.isPaused()) {
 			this._model.setPaused(false);
