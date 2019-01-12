@@ -5,9 +5,11 @@ package eventhandler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import model.Game;
 import view.*;
+import server.*;
 
 /**
  * @author thong
@@ -18,6 +20,7 @@ public class StartActionListener implements ActionListener, Runnable{
 	private Game game;
 	private MainWindowView view;
 	private Thread t1;
+	private ThreadClient client;
 	
 	public StartActionListener(Game model, MainWindowView view) {
 		game = model;
@@ -79,6 +82,10 @@ public class StartActionListener implements ActionListener, Runnable{
 				{
 
 					game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
+					
+					
+					
+					
 					genCount++;
 					view.getLblGeneration().setText("Generation: " + genCount);
 				}
