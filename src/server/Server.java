@@ -4,6 +4,7 @@
 package server;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -13,70 +14,38 @@ import model.*;
  * @author thong
  *
  */
-public class Server implements Runnable{
+public class Server{
 
 	public static final int PORT = 1546;
+
+	private static int[][] currentGen = new int[30][40];
+	private static int[][] nextGen = new int[30][40];
+	private static Object currentGenNum;
+	private static Board board;
 	private Thread server;
 	private ServerSocket socket;
 	
-	public Server() {
-		server = new Thread(this);
-	}
-	
-	public void Start() throws IOException {
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		
-		socket = new ServerSocket(PORT);
-		server.start();
+		ServerSocket s = new ServerSocket(PORT);
+		Socket socket = s.accept();
 		
+		ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+		ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+		
+		if(socket.isConnected())
+			System.out.println("Server connected");
+		
+		while(true) {
 
-	}
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		try {
+			board = (Board) in.readObject(); // read Board object from client
 			
-			while(true) {
-				Socket s = socket.accept();
-				
-				System.out.println("Connection accepted.");
-				System.out.println("The new socket: " + s);
-				
-				ThreadClient client = new ThreadClient();
-				
-				ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-				
-				Game game = new Game(61,26,15);
-				
-				game.setUpdatesPerSecond(3.0);
-				
-				out.writeObject(game);
-				
-				System.out.println(game);
-				
-				
-			}
+			board.UpdateBoard(false); // update it
 			
+			out.writeObject(board); // and then write it back to the socket
 			
 			
 		}
-		catch(IOException e){
-			System.out.println("Server Error: " + e.getMessage());
-			
-		}
-		finally {
-			try {
-				this.socket.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
-	public static void main(String[] args) throws IOException {
-		
-		Server server = new Server();
-		
 		
 	}
 	

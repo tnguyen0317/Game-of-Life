@@ -5,7 +5,10 @@ package server;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
+
 import model.*;
 	
 /**
@@ -15,55 +18,44 @@ import model.*;
 public class ThreadClient implements Runnable{
 
 	private final Socket socket;
+	private Scanner scan;
+	private ObjectOutputStream out;
 	private ObjectInputStream in;
+	private Board board;
+	
 	private Thread client;
 	private Game model;
 	
 	public ThreadClient() throws IOException {
-		this.socket = new Socket("localhost",1546);
 		
-		 in = new ObjectInputStream(this.socket.getInputStream());
+		socket = new Socket("localhost",1546);
 		
-		 client = new Thread(this);
-		 
-		 client.start();
+		in = new ObjectInputStream(socket.getInputStream());
+		out = new ObjectOutputStream(socket.getOutputStream());
+		
+		if(socket.isConnected())
+			System.out.println("CONNECTED LETS GO");
+		
 	}
 	
+	public void sendToSocket(Board board) throws IOException {
+		out.writeObject(board);
+		
+		
+	}
+	
+	public void readFromSocket() throws ClassNotFoundException, IOException {
+		this.board = (Board) in.readObject();
+				
+		
+	}
 	
 	@Override
 	public void run() {
-		try {
-			while(true) {
-				Game game = (Game) in.readObject();
-				
-				System.out.println(game.getUpdatesPerSecond());
-				
-				
-				model = game;
-			}
+		while(!!!false) {
 			
-
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Class not found!");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
-		finally {
-			try {
-				socket.close();
-			}
-			catch(IOException e) {
-				System.out.println(e.getMessage());
-			}
-		}
-	}
-	
-	public static void main(String[] args) throws IOException {
-
-		
 		
 	}
+
 }
