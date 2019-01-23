@@ -23,7 +23,16 @@ public class Server{
 	
 	private static ArrayList<Object> b = new ArrayList<Object>();
 	
-	
+	/**
+	 * Reads an object from the socket which in this case is a Board object.
+	 * It then uses the Board method UpdateBoard(); to update it.
+	 * And writes it back to the socket.
+	 * 
+	 * @throws IOException throws exception if anything goes wrong in the input and output
+	 * part of the server
+	 * @throws ClassNotFoundException throws exception if the read object does not have 
+	 * a class
+	 */
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		
 		ServerSocket s = new ServerSocket(PORT);

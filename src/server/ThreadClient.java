@@ -33,7 +33,11 @@ public class ThreadClient{
 	public ThreadClient() throws IOException {
 
 	}
-	
+	/**
+	 * Sets up a socket with an IP address and a port.
+	 * @throws UnknownHostException
+	 * @throws IOException
+	 */
 	public void connect() throws UnknownHostException, IOException {
 		
 		socket = new Socket("127.0.0.1",1546);

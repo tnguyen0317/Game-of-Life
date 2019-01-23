@@ -42,7 +42,10 @@ public class StartActionListener implements ActionListener, Runnable, Serializab
 		
 		t1 = new Thread(this);
 	}
-	
+	/**
+	 * This method is called upon when the start button is clicked.
+	 * Basically just disables a few buttons, and then starts up a thread.
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -65,7 +68,10 @@ public class StartActionListener implements ActionListener, Runnable, Serializab
 
 		t1.start();
 	}
-	
+	/**
+	 * Runs the thread which will update the board through the server 
+	 * for a constant period of time.
+	 */
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -106,28 +112,8 @@ public class StartActionListener implements ActionListener, Runnable, Serializab
 						
 						readFromSocket();
 						
-//						game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
-						
-//						cont.DrawBoard();
-						
-//						game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
-//						game.setBoard(this.board);
-						
-						for(int i = 0; i < game.getBoard().sizeColumn; i++)
-						{
-							System.out.println("%");
-							for(int j = 0; j < game.getBoard().sizeRow; j++)
-							{
-								if(game.getBoard().GetCell(i, j).isAlive())
-									System.out.print("1");
-								else
-									System.out.print("0");
-							}
-						}
-						
 						
 					} catch (IOException | ClassNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					
@@ -145,23 +131,29 @@ public class StartActionListener implements ActionListener, Runnable, Serializab
 				frameCounter = System.currentTimeMillis();
 				System.out.println("Generation : " + genCount);
 
-				//_view.getLblGeneration().setText("Generation: " + count);
-				
 			}
 
 		}
 	}
 	
+	/**
+	 * Writes an ArrayList<Object> to the socket from the client class
+	 * @param b
+	 * @throws IOException
+	 */
 	public void sendToSocket(ArrayList<Object> b) throws IOException {
 		
 		client.out.writeObject(b);
 		
 	}
 	
+	/**
+	 * Reads from the socket in the client class
+	 * @throws ClassNotFoundException
+	 * @throws IOException
+	 */
 	public void readFromSocket() throws ClassNotFoundException, IOException {
 		this.b = (ArrayList<Object>) client.in.readObject();
-				
-//		game.setBoard((Board) b.get(0));
 		
 		game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
 		

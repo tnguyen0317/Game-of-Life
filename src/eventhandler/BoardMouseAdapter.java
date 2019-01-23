@@ -23,7 +23,9 @@ public class BoardMouseAdapter implements MouseListener {
 	public BoardMouseAdapter(Board b){
 		board = b;
 	}
-	
+	/**
+	 * Sets a single cell to alive if mouse is clicked
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub

@@ -65,6 +65,15 @@ public class Board implements Serializable{
 
 	//Update the board with a constant time counting each cells neighbours
 	//and applying rules of the game
+	/**
+	 * Updates the board using GetNeighbours(); from the Cell class.
+	 * And applies the rules of the game.
+	 * 
+	 * @param initProb gives the user an option of using initilization probability
+	 * in the game. If this parameter is true, initilization probability is enabled
+	 * and vice versa.
+	 * The result is stored in the nextGeneration matrix array.
+	 */
 	public void UpdateBoard(boolean initProb) {
 		boolean alive,result;
 		int count;
@@ -107,19 +116,26 @@ public class Board implements Serializable{
 		NextGeneration();
 			
 	}
-	
+	/**
+	 * Sets the cells in this board object according to the nextGeneration matrix array
+	 * 
+	 */
 	public void NextGeneration() {
 		for(int i = 0; i < sizeColumn; i++)
 			for(int j  = 0; j < sizeRow; j++)
 				this.cells[i][j].setAlive(nextGeneration[i][j]);
 	}
-
+	/**
+	 * Sets every cell in this board object to false.
+	 */
 	public void ClearBoard() {
 		for(int i = 0; i < sizeColumn; i++)
 			for(int j  = 0; j < sizeRow; j++)
 				this.cells[i][j].setAlive(false);
 	}
-	
+	/**
+	 * Initializes field members with values and new instances
+	 */
 	public void InitBoard() {
 		this.cells = new Cell[sizeColumn][sizeRow];
 

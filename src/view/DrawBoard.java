@@ -31,7 +31,9 @@ public class DrawBoard extends JPanel{
 		this.view = View;
 
 	}
-	
+	/**
+	 * Fill a cell with black if it is alive
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 

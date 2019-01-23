@@ -51,13 +51,12 @@ public class MainWindowController {
 		DrawBoard(_model.getBoard());
 
 	}
-	
+	/**
+	 * Action listeners for every button on the window.
+	 */
 	private void ActionListener() {
 		this._view.getPanel().addMouseListener(new BoardMouseAdapter(_model.getBoard()));
 		this._view.getPanel().addMouseMotionListener(new BoardMouseMotionAdapter(_model.getBoard()));
-		
-//		this._view.getBtnStart().addActionListener(e -> this.Update());
-
 		
 		this._view.getBtnSetMatrix().addActionListener(e -> this.setMatrix());
 		
@@ -69,8 +68,6 @@ public class MainWindowController {
 		
 		this._view.getButtonReset().addActionListener(e -> this.Reset());
 		
-//		_view.getButtonReset().addActionListener(e -> _view.getBtnStart());
-		
 		
 		this._view.getBtnStart().addActionListener(new StartActionListener(_model,_view,_client,this)); 
 	}
@@ -78,7 +75,9 @@ public class MainWindowController {
 	public void Reset() {
 
 	}
-
+	/**
+	 * Eventhandler for the pause button. Will pause the thread in StartActionListener class if pressed.
+	 */
 	public void PauseGame() {
 		
 		_view.getBtnClear().setEnabled(true);
@@ -97,7 +96,10 @@ public class MainWindowController {
 		}
 		
 	}
-	
+	/**
+	 * This method handles user configuration for cell size, initilization probability rate and update rate.
+	 * Also handles if something is input incorrectly
+	 */
 	public void SetCellSize() {
 		
 		
@@ -128,6 +130,10 @@ public class MainWindowController {
 
 		
 	}
+	/**
+	 * Set matrix size for the whole board.
+	 * Handles all possible errors.
+	 */
 	public void setMatrix() {
 		
 		
@@ -155,15 +161,14 @@ public class MainWindowController {
 
 
 	}
-	
+	/**
+	 * Repaints everything if anything is changed within the matrix.
+	 * @param board
+	 */
 	public void DrawBoard(Board board) {	
 		DrawBoard drawBoard = new DrawBoard(board,_view);
-		
-//		_view.getFrame().setBounds(_view.getPanel().getBounds().x,_view.getPanel().getBounds().y + 150,_view.getPanel().getBounds().width,_view.getPanel().getBounds().height + 100);
-//		_view.getPanel().setBounds(0,0,drawBoard.getWidth() * drawBoard.getColumn(),drawBoard.getHeight() * drawBoard.getRow());
+
 		_view.getPanel().add(drawBoard);
-//		drawBoard.setBounds(0,0,919,402);
-//		_view.getFrame().add(drawBoard);
 	}
 	
 	
@@ -181,8 +186,6 @@ public class MainWindowController {
 
 		int count = _model.getBoard().getCountGeneration() + 1;
 		_view.getLblGeneration().setText("Generation: " + count);
-//		_model.getBoard().UpdateBoard();
-
 
 	}
 }

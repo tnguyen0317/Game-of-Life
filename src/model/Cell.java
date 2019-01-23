@@ -48,7 +48,13 @@ public class Cell implements Serializable{
 		Boundary = new Rectangle(position.X * size, position.Y * size, size, size);
 		
 	}
-	
+	/**
+	 * This method checks surrounding neighbours with the help of a Board object if they
+	 * are alive or not, and then returns the count of alive neighbours.
+	 * 
+	 * @param b Board object containing a matrix of cells
+	 * @return amount of alive neighbours surrounding this specific cell
+	 */
 	public int GetNeighbours(Board b) {
 		int count = 0;
 		

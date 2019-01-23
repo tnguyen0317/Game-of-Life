@@ -24,6 +24,10 @@ public class BoardMouseMotionAdapter implements MouseMotionListener{
 		board = b;
 	}
 	
+	/**
+	 * Sets cells to alive if the left click is pressed and the moused is moved around,
+	 * kills cells if you right click and drag the mouse.
+	 */
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
