@@ -4,11 +4,13 @@
 package controller;
 
 import model.*;
+import server.ThreadClient;
 import view.*;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -25,7 +27,9 @@ import helpers.CheckDataInput;
 public class MainWindowController {
 	
 	private MainWindowView _view;
-	private Game _model;
+	public Game _model;
+	private ThreadClient _client;
+	
 	
 	public MainWindowController() {
 		this._view = new MainWindowView();
@@ -33,9 +37,10 @@ public class MainWindowController {
 
 	}
 	
-	public MainWindowController(MainWindowView View, Game Model) {
-		this._view = View;
-		this._model = Model;
+	public MainWindowController(MainWindowView view, Game model, ThreadClient client){
+		this._view = view;
+		this._model = model;
+		this._client = client;
 		
 		_model.setBoard(new Board(61,26,15));
 		_view.getLblmatrixSize().setText("Current size: " + _model.getBoard().sizeColumn + "x" + _model.getBoard().sizeRow);
@@ -43,7 +48,7 @@ public class MainWindowController {
 		
 		ActionListener();
 
-		DrawBoard();
+		DrawBoard(_model.getBoard());
 
 	}
 	
@@ -65,7 +70,9 @@ public class MainWindowController {
 		this._view.getButtonReset().addActionListener(e -> this.Reset());
 		
 //		_view.getButtonReset().addActionListener(e -> _view.getBtnStart());
-		this._view.getBtnStart().addActionListener(new StartActionListener(_model,_view)); 
+		
+		
+		this._view.getBtnStart().addActionListener(new StartActionListener(_model,_view,_client,this)); 
 	}
 	
 	public void Reset() {
@@ -149,8 +156,8 @@ public class MainWindowController {
 
 	}
 	
-	public void DrawBoard() {	
-		DrawBoard drawBoard = new DrawBoard(_model.getBoard(),_view);
+	public void DrawBoard(Board board) {	
+		DrawBoard drawBoard = new DrawBoard(board,_view);
 		
 //		_view.getFrame().setBounds(_view.getPanel().getBounds().x,_view.getPanel().getBounds().y + 150,_view.getPanel().getBounds().width,_view.getPanel().getBounds().height + 100);
 //		_view.getPanel().setBounds(0,0,drawBoard.getWidth() * drawBoard.getColumn(),drawBoard.getHeight() * drawBoard.getRow());

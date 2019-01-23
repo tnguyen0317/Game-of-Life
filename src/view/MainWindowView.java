@@ -20,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
+import java.awt.event.MouseWheelListener;
+import java.awt.event.MouseWheelEvent;
 
 
 public class MainWindowView {

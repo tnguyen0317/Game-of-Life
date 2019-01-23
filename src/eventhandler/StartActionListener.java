@@ -6,7 +6,11 @@ package eventhandler;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
 
+import controller.MainWindowController;
+import model.Board;
 import model.Game;
 import view.*;
 import server.*;
@@ -15,16 +19,26 @@ import server.*;
  * @author thong
  *
  */
-public class StartActionListener implements ActionListener, Runnable{
+public class StartActionListener implements ActionListener, Runnable, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5064562578370221224L;
+	
 	private Game game;
 	private MainWindowView view;
 	private Thread t1;
+	private Board board;
 	private ThreadClient client;
+	private ArrayList<Object> b;
+	private MainWindowController cont;
 	
-	public StartActionListener(Game model, MainWindowView view) {
+	public StartActionListener(Game model, MainWindowView view, ThreadClient client,MainWindowController cont) {
 		game = model;
 		this.view = view;
+		this.client = client;
+		this.cont = cont;
 		
 		t1 = new Thread(this);
 	}
@@ -81,10 +95,43 @@ public class StartActionListener implements ActionListener, Runnable{
 				if (!game.isPaused())
 				{
 
-					game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
+//					game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
 					
+					try {
+						ArrayList<Object> b = new ArrayList<Object>();
+						
+						b.add(game.getBoard());
+						
+						sendToSocket(b);
+						
+						readFromSocket();
+						
+//						game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
+						
+//						cont.DrawBoard();
+						
+//						game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
+//						game.setBoard(this.board);
+						
+						for(int i = 0; i < game.getBoard().sizeColumn; i++)
+						{
+							System.out.println("%");
+							for(int j = 0; j < game.getBoard().sizeRow; j++)
+							{
+								if(game.getBoard().GetCell(i, j).isAlive())
+									System.out.print("1");
+								else
+									System.out.print("0");
+							}
+						}
+						
+						
+					} catch (IOException | ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					
-					
+
 					
 					genCount++;
 					view.getLblGeneration().setText("Generation: " + genCount);
@@ -103,6 +150,23 @@ public class StartActionListener implements ActionListener, Runnable{
 			}
 
 		}
+	}
+	
+	public void sendToSocket(ArrayList<Object> b) throws IOException {
+		
+		client.out.writeObject(b);
+		
+	}
+	
+	public void readFromSocket() throws ClassNotFoundException, IOException {
+		this.b = (ArrayList<Object>) client.in.readObject();
+				
+//		game.setBoard((Board) b.get(0));
+		
+		game.getBoard().UpdateBoard(view.getRdbtnEnableInitializationProbability().isSelected());
+		
+		this.board = (Board) b.get(0);
+		
 	}
 
 }

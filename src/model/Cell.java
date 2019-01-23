@@ -4,12 +4,17 @@
 package model;
 
 import java.awt.Rectangle;
+import java.io.Serializable;
 
 /**
  * @author minh
  *
  */
-public class Cell {
+public class Cell implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1976899883845227065L;
 	private final Point position;
 	private boolean isAlive;
 	private final Rectangle Boundary;

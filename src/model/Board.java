@@ -3,13 +3,18 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * @author minh
  *
  */
-public class Board {
+public class Board implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -9080955515452557280L;
 	private Cell[][] cells;
 	private boolean[][] nextGeneration;
 	private int countGeneration = 0;

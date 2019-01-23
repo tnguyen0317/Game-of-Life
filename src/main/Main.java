@@ -3,6 +3,7 @@ import java.awt.EventQueue;
 
 import view.MainWindowView;
 import model.Game;
+import server.ThreadClient;
 import controller.MainWindowController;
 
 /**
@@ -26,9 +27,14 @@ public class Main {
 			public void run() {
 				try {
 					MainWindowView window = new MainWindowView();
+					
+					ThreadClient client = new ThreadClient();
+					
+					client.connect();
+					
 					Game game = new Game(2.0);
 					
-					MainWindowController controller = new MainWindowController(window,game);
+					MainWindowController controller = new MainWindowController(window,game,client);
 					
 				} catch (Exception e) {
 					e.printStackTrace();

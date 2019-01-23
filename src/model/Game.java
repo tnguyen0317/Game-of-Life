@@ -10,7 +10,7 @@ package model;
 public class Game {
 	private Board board;
 	private boolean isPaused = false;
-	private double updatesPerSecond = 1.0;
+	private double updatesPerSecond = 0.01;
 	
 	public Game() {
 	}
