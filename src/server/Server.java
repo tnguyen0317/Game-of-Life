@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+
 import model.*;
 
 /**
@@ -18,31 +20,33 @@ public class Server{
 
 	public static final int PORT = 1546;
 
-	private static int[][] currentGen = new int[30][40];
-	private static int[][] nextGen = new int[30][40];
-	private static Object currentGenNum;
-	private static Board board;
-	private Thread server;
-	private ServerSocket socket;
+	
+	private static ArrayList<Object> b = new ArrayList<Object>();
+	
 	
 	public static void main(String[] args) throws IOException, ClassNotFoundException {
 		
 		ServerSocket s = new ServerSocket(PORT);
 		Socket socket = s.accept();
 		
-		ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
 		ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
 		
+		ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+
 		if(socket.isConnected())
 			System.out.println("Server connected");
 		
 		while(true) {
 
-			board = (Board) in.readObject(); // read Board object from client
+			b = (ArrayList<Object>) in.readObject(); // read Board object from client
+
+			Board board = (Board) b.get(0);
 			
 			board.UpdateBoard(false); // update it
 			
-			out.writeObject(board); // and then write it back to the socket
+			out.flush();
+			
+			out.writeObject(b); // and then write it back to the socket
 			
 			
 		}

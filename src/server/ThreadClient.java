@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.*;
@@ -15,20 +17,26 @@ import model.*;
  * @author thong
  *
  */
-public class ThreadClient implements Runnable{
+public class ThreadClient{
 
-	private final Socket socket;
-	private Scanner scan;
-	private ObjectOutputStream out;
-	private ObjectInputStream in;
+	
+	public ObjectOutputStream out;
+	public ObjectInputStream in;
+	
+	private Socket socket;
 	private Board board;
+
 	
 	private Thread client;
-	private Game model;
+
 	
 	public ThreadClient() throws IOException {
+
+	}
+	
+	public void connect() throws UnknownHostException, IOException {
 		
-		socket = new Socket("localhost",1546);
+		socket = new Socket("127.0.0.1",1546);
 		
 		in = new ObjectInputStream(socket.getInputStream());
 		out = new ObjectOutputStream(socket.getOutputStream());
@@ -37,25 +45,7 @@ public class ThreadClient implements Runnable{
 			System.out.println("CONNECTED LETS GO");
 		
 	}
+
 	
-	public void sendToSocket(Board board) throws IOException {
-		out.writeObject(board);
-		
-		
-	}
-	
-	public void readFromSocket() throws ClassNotFoundException, IOException {
-		this.board = (Board) in.readObject();
-				
-		
-	}
-	
-	@Override
-	public void run() {
-		while(!!!false) {
-			
-		}
-		
-	}
 
 }
