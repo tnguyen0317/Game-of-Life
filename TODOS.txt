@@ -1,7 +1,0 @@
-TODOS:
-
-- Användaren ska kunna ändra regler för cellerna
-
-- Användaren ska kunna ladda in fördefinierade mönstren
-
-- Client/server. Client requestar en model objekt från servern ????????? Kanske token authorization för att logga in.....
